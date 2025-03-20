@@ -219,10 +219,11 @@
                 <version>3.5.2</version>
                 <configuration>
                     <includes>
-                        <include>UniversalLifeIT.java</include>
-                        <include>WholeLifeIT.java</include>
+                        <include>GroupListBillAcceptIT.java</include>
+                        <include>GroupListBillIT.java</include>
                         <include>BaseLoginTest.java</include>
-                        <include>AddFamilyIT.java</include>
+                        <include>AddFamilyAcceptIT.java</include>
+                        <include>AddFamilyPfixIT.java</include>
                     </includes>
                     <reportsDirectory>${project.build.directory}/surefire-reports</reportsDirectory>
                     <redirectTestOutputToFile>true</redirectTestOutputToFile>
@@ -246,10 +247,11 @@
                 </executions>
                 <configuration>
                     <includes>
-                        <include>UniversalLifeIT.java</include>
-                        <include>WholeLifeIT.java</include>
+                        <include>GroupListBillAcceptIT.java</include>
+                        <include>GroupListBillIT.java</include>
                         <include>BaseLoginTest.java</include>
-                        <include>AddFamilyIT.java</include>
+                        <include>AddFamilyAcceptIT.java</include>
+                        <include>AddFamilyPfixIT.java</include>
                     </includes>
                     <trimStackTrace>false</trimStackTrace>
                     <enableAssertions>true</enableAssertions>

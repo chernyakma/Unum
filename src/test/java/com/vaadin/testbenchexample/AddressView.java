@@ -1,6 +1,8 @@
 package com.vaadin.testbenchexample;
 import java.util.Collections;
 
+import com.vaadin.flow.component.html.testbench.InputTextElement;
+import com.vaadin.flow.component.listbox.testbench.ListBoxElement;
 import org.openqa.selenium.Keys;
 
 import com.vaadin.flow.component.button.testbench.ButtonElement;
@@ -21,25 +23,34 @@ public class AddressView extends TestBenchElement
 
 
 
-	protected SelectElement getCountry() {
-	    return $( TestBenchElement.class ).id("S0").$( SelectElement.class ).id( "Country" );
+	protected ListBoxElement getCountry() {
+	    return $( TestBenchElement.class ).id("S0").$( SelectElement.class ).id( "Country" ).$(ListBoxElement.class).first();
 	}
-	protected TextFieldElement getLine1() {
-		return $( TestBenchElement.class ).id("S1").$( TextFieldElement.class ).id( "Line1" );
+	protected SelectElement getCountryAccept() {
+		return $( TestBenchElement.class ).id("S0").$( SelectElement.class ).id( "Country" );
 	}
-	protected TextFieldElement getLine2() {
-		return $( TestBenchElement.class ).id("S1").$( TextFieldElement.class ).id( "Line2" );
+	protected InputTextElement getLine1() {
+		return $( TestBenchElement.class ).id("S1").$( TextFieldElement.class ).id( "Line1" ).$(InputTextElement.class).first();
 	}
-	protected TextFieldElement getCity() {
-		return $( TestBenchElement.class ).id("S1").$( TextFieldElement.class ).id( "City" );
+	protected InputTextElement getLine2() {
+		return $( TestBenchElement.class ).id("S1").$( TextFieldElement.class ).id( "Line2" ).$(InputTextElement.class).first();
 	}
-	protected SelectElement getState() {
+	protected InputTextElement getCity() {
+		return $( TestBenchElement.class ).id("S1").$( TextFieldElement.class ).id( "City" ).$(InputTextElement.class).first();
+	}
+	protected ListBoxElement getState() {
+		return $( TestBenchElement.class ).id("S1").$( SelectElement.class ).id( "State" ).$(ListBoxElement.class).first();
+	}
+	protected SelectElement getStateAccept() {
 		return $( TestBenchElement.class ).id("S1").$( SelectElement.class ).id( "State" );
 	}
-	protected TextFieldElement getZip() {
-		return $( TestBenchElement.class ).id("S1").$( TextFieldElement.class ).id( "Zip" );
+	protected InputTextElement getZip() {
+		return $( TestBenchElement.class ).id("S1").$( TextFieldElement.class ).id( "Zip" ).$(InputTextElement.class).first();
 	}
-	protected SelectElement getAddressType() {
+	protected ListBoxElement getAddressType() {
+		return $( TestBenchElement.class ).id("S1").$( SelectElement.class ).id( "AddressType" ).$(ListBoxElement.class).first();
+	}
+	protected SelectElement getAddressTypeAccept() {
 		return $( TestBenchElement.class ).id("S1").$( SelectElement.class ).id( "AddressType" );
 	}
     protected CheckboxElement getDefaultResidence ( ) {
@@ -75,7 +86,7 @@ public class AddressView extends TestBenchElement
 		getLine1().sendKeys( address1 );
 		getLine2().sendKeys( address2 );
 		getCity().sendKeys( city );
-		getZip().sendKeys( zip );
+		getZip().setValue( zip );
 	}
 
 

@@ -78,21 +78,44 @@ public abstract class BaseLoginTest extends TestBenchTestCase {
 	// Your login method
 
 	private void performLogin() {
-		getDriver().get("http://localhost:8080/unum_webui/login");
+
 	//	getDriver().get( "http://" + IPAddress.findSiteLocalAddress() + ":8080/navy_webui/");
 
+	// local
+		getDriver().get("http://localhost:8080/unum_webui/login");
 
 		$( TextFieldElement.class).first().setValue( "jBond");
 		$( PasswordFieldElement.class).first().setValue( "JBond007");
 		$( ButtonElement.class).first().click();
+    /*
+	//	testBed unumAdminRelease5
+		getDriver().get("https://unum5Life70.testbed.calcfocus.net/achieve/login");
+
+		WebElement usernameFieldElement = findElement( By.id( "vaadinLoginUsername" ));
+//		usernameFieldElement.click();
+		usernameFieldElement.sendKeys( "jBond" );
+		WebElement passwordFieldElement = findElement( By.id( "vaadinLoginPassword" ));
+//		passwordFieldElement.click();
+		passwordFieldElement.sendKeys( "JBond007" );
+		$( ButtonElement.class).first().click();
+
+//		WebElement buttonElement = findElement( By.id( "signInSubmitButton" ));
+//		TestBenchElement loginButton = ( TestBenchElement )findElement( By.name( "signInSubmitButton" ));
+//		loginButton.click();
+
+//		$( TextFieldElement.class).id("vaadinLoginUsername").setValue( "jBond");
+//		$( PasswordFieldElement.class).id("vaadinLoginPassword").setValue( "JBond007");
+//		$( ButtonElement.class).first().click();
 	/*	getDriver().get("https://test.everlake.calcfocus.net/achieve/oauth2/login/code/cognito");
 
 		WebElement usernameFieldElement = findElement( By.id( "signInFormUsername" ));
 		usernameFieldElement.click();
 		usernameFieldElement.sendKeys( "helpdesk" );
+
 		WebElement passwordFieldElement = findElement( By.id( "signInFormPassword" ));
 		passwordFieldElement.click();
 		passwordFieldElement.sendKeys( "JBond007$" );
+
 
 	//	WebElement buttonElement = findElement( By.id( "signInSubmitButton" ));
 		TestBenchElement loginButton = ( TestBenchElement )findElement( By.name( "signInSubmitButton" ));
@@ -100,8 +123,8 @@ public abstract class BaseLoginTest extends TestBenchTestCase {
 
 
 
-
 */
+
 
 	}
 

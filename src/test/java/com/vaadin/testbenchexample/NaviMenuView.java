@@ -10,6 +10,7 @@ import com.vaadin.flow.component.select.testbench.SelectElement;
 import com.vaadin.testbench.TestBenchElement;
 import com.vaadin.testbench.annotations.Attribute;
 import com.vaadin.testbench.elementsbase.Element;
+import org.openqa.selenium.WebElement;
 
 
 @Element( "NAVI-MENU" )
@@ -18,11 +19,19 @@ public class NaviMenuView extends TestBenchElement {
 
 	protected TestBenchElement getAddresses() {
 
+		return $( TestBenchElement.class ).id( "navi-menu" ).$("IRON-ICON").get( 5 );
+	}
+	protected TestBenchElement getAddressesAccept() {
+
 		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 5 );
 	}
 	protected TestBenchElement getPolicy() {
 
-		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).first();
+		return $( TestBenchElement.class ).id( "navi-menu" ).$("IRON-ICON").first();
+	}
+	protected TestBenchElement getPolicyAccept() {
+
+		return $( TestBenchElement.class ).id( "navi-menu").$( IconElement.class ).first();
 	}
 
 	protected TestBenchElement getSuspense() {
@@ -41,7 +50,27 @@ public class NaviMenuView extends TestBenchElement {
 
 	protected TestBenchElement beneficiaries() {
 
-		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 18 );
+		return $( TestBenchElement.class ).id( "navi-menu" ).$("IRON-ICON").get( 7);
+	}
+	protected TestBenchElement beneficiariesAccept() {
+
+		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 10 );
+	}
+	protected TestBenchElement payorAndOwner() {
+
+		return $( TestBenchElement.class ).id( "navi-menu" ).$("IRON-ICON").get( 4 );
+	}
+	protected TestBenchElement payorAndOwnerAccept() {
+
+		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get(4 );
+	}
+	protected TestBenchElement otherRoles() {
+
+		return $( TestBenchElement.class ).id( "navi-menu" ).$("IRON-ICON").get( 10 );
+	}
+	protected TestBenchElement otherRolesAccept() {
+
+		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get(13 );
 	}
 //SPDA
 	protected TestBenchElement getDocumentSPDA() {
@@ -56,12 +85,21 @@ public class NaviMenuView extends TestBenchElement {
 
 	protected TestBenchElement getBankInformation() {
 
+		return $( TestBenchElement.class ).id( "navi-menu" ).$("IRON-ICON").get(3);
+	}
+	protected TestBenchElement getBankInformationAccept() {
+
 		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 4 );
 	}
 
+
 	protected TestBenchElement getFamily() {
 
-		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).last();
+		return $( TestBenchElement.class ).id( "navi-menu").$("IRON-ICON").last();
+	}
+	protected TestBenchElement getFamilyAccept() {
+
+		return $( TestBenchElement.class ).id( "navi-menu").$( IconElement.class ).last();
 	}
 
 	protected TestBenchElement checkIGO() {
@@ -83,6 +121,24 @@ public class NaviMenuView extends TestBenchElement {
 		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 30 );
 	}
 
+	protected TestBenchElement groupSuspense() {
+
+		return $( TestBenchElement.class ).id( "navi-menu" ).$("IRON-ICON").get( 18 );
+	}
+	protected TestBenchElement groupSuspenseAccept() {
+
+		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 24 );
+	}
+
+	protected TestBenchElement groupBills() {
+
+		return $( TestBenchElement.class ).id( "navi-menu" ).$("IRON-ICON").get( 6 );
+	}
+
+	protected TestBenchElement groupBillsAccept() {
+
+		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 9 );
+	}
 
 
 	protected TestBenchElement transactionsWL() {
@@ -91,7 +147,19 @@ public class NaviMenuView extends TestBenchElement {
 	}
 	protected TestBenchElement transactions() {
 
-		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 9 );
+		return $( TestBenchElement.class ).id( "navi-menu" ).$("IRON-ICON").get( 24 );
+	}
+	protected TestBenchElement transactionsAccept() {
+
+		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 30 );
+	}
+	protected TestBenchElement transactionsLoan() {
+
+		return $( TestBenchElement.class ).id( "navi-menu" ).$("IRON-ICON").get( 27 );
+	}
+	protected TestBenchElement transactionsLoanAccept() {
+
+		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 30 );
 	}
 
 	protected TestBenchElement getReport() {
@@ -100,6 +168,7 @@ public class NaviMenuView extends TestBenchElement {
 	}
 	protected TestBenchElement getResult() {
 
-		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 5 );
+		return $( TestBenchElement.class ).id( "navi-menu" ).$("IRON-ICON").get( 5 );
 	}
+
 }

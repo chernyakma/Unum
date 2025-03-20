@@ -6,6 +6,11 @@ import java.util.List;
 
 import javax.swing.plaf.basic.BasicOptionPaneUI;
 
+import com.vaadin.flow.component.combobox.testbench.ComboBoxElement;
+import com.vaadin.flow.component.formlayout.FormLayout;
+import com.vaadin.flow.component.html.testbench.InputTextElement;
+import com.vaadin.flow.component.listbox.testbench.ListBoxElement;
+import com.vaadin.flow.component.radiobutton.testbench.RadioButtonElement;
 import org.apache.commons.compress.harmony.pack200.NewAttributeBands;
 import org.h2.engine.Mode;
 import org.junit.jupiter.api.Test;
@@ -48,11 +53,11 @@ import kotlin.reflect.jvm.internal.impl.descriptors.Visibilities;
 	public class AddFamilyView extends TestBenchElement {
 
 
-	protected TextFieldElement getFirstName() {
-		return $( TestBenchElement.class ).id( "scenarioComponent" ).$( TestBenchElement.class ).id( "S0" ).$( FormLayoutElement.class ).first().$( TextFieldElement.class ).id( "FirstName" );
+	protected InputTextElement getFirstName() {
+		return $( TestBenchElement.class ).id( "scenarioComponent" ).$( TestBenchElement.class ).id( "S0" ).$( FormLayoutElement.class ).first().$(TextFieldElement.class).id("FirstName").$(InputTextElement.class).first();
 	}
-	protected TextFieldElement getLastName() {
-		return $( TestBenchElement.class ).id( "scenarioComponent" ).$( TestBenchElement.class ).id( "S0" ).$( FormLayoutElement.class ).first().$( TextFieldElement.class ).id( "LastName" );
+	protected InputTextElement getLastName() {
+		return $(TestBenchElement.class).id("scenarioComponent").$(TestBenchElement.class).id("S0").$(FormLayoutElement.class).first().$(TextFieldElement.class).id("LastName").$(InputTextElement.class).first();
 	}
 	protected SelectElement getSuffix() {
 		return $( TestBenchElement.class ).id( "scenarioComponent" ).$( TestBenchElement.class ).id( "S0" ).$( FormLayoutElement.class ).first().$( SelectElement.class ).id( "SuffixCode" );
@@ -63,8 +68,17 @@ import kotlin.reflect.jvm.internal.impl.descriptors.Visibilities;
 	protected TextFieldElement getTaxID() {
 		return $( TestBenchElement.class ).id( "scenarioComponent" ).$( TestBenchElement.class ).id( "S0" ).$( FormLayoutElement.class ).first().$( TextFieldElement.class ).id( "TaxID" );
 	}
-	protected SelectElement getGender() {
-		return $( TestBenchElement.class ).id( "scenarioComponent" ).$( TestBenchElement.class ).id( "S0" ).$( FormLayoutElement.class ).first().$( SelectElement.class ).id( "Gender" );
+	protected ListBoxElement getGender() {
+		return $( TestBenchElement.class ).id( "scenarioComponent" ).$( TestBenchElement.class ).id( "S0" ).$( FormLayoutElement.class ).first().$(SelectElement.class).first().$(ListBoxElement.class).first();
+	}
+	protected SelectElement getGenderAccept() {
+		return $( TestBenchElement.class ).id( "scenarioComponent" ).$( TestBenchElement.class ).id( "S0" ).$( FormLayoutElement.class ).first().$(SelectElement.class).id("Gender");
+	}
+	protected ListBoxElement getSpouseGender() {
+		return $( TestBenchElement.class ).id( "scenarioComponent" ).$( TestBenchElement.class ).id( "S0" ).$( FormLayoutElement.class ).first().$(SelectElement.class).id("Gender").$(ListBoxElement.class).first();
+	}
+	protected SelectElement getSpouseGenderAccept() {
+		return $( TestBenchElement.class ).id( "scenarioComponent" ).$( TestBenchElement.class ).id( "S0" ).$( FormLayoutElement.class ).first().$(SelectElement.class).id("Gender");
 	}
 	protected DatePickerElement getDateOfBirth () {
 		return $( TestBenchElement.class ).id( "scenarioComponent" ).$( TestBenchElement.class ).id( "S0" ).$( FormLayoutElement.class ).first().$( DatePickerElement.class ).id( "DateOfBirth" );
@@ -73,23 +87,36 @@ import kotlin.reflect.jvm.internal.impl.descriptors.Visibilities;
 		return $( TestBenchElement.class ).id( "scenarioComponent" ).$( TestBenchElement.class ).id( "S0" ).$( FormLayoutElement.class ).first().$( DatePickerElement.class ).id( "DateOfDeath" );
 	}
 
-	protected RadioButtonGroupElement getNonTobacco () {
-		return $( TestBenchElement.class ).id( "scenarioComponent" ).$( TestBenchElement.class ).id( "S0" ).$( FormLayoutElement.class ).first().$( RadioButtonGroupElement.class ).first();
+	protected RadioButtonElement getNonTobacco () {
+		return $( TestBenchElement.class ).id( "scenarioComponent" ).$( TestBenchElement.class ).id( "S0" ).$( FormLayoutElement.class ).first().$( RadioButtonGroupElement.class ).first().$(RadioButtonElement.class).first();
 	}
-	protected RadioButtonGroupElement getTobaccoUse () {return $( TestBenchElement.class ).id( "scenarioComponent" ).$( TestBenchElement.class ).id( "S0" ).$( FormLayoutElement.class ).first().$( RadioButtonGroupElement.class ).last();
+	protected RadioButtonElement getTobaccoUse () {
+		return $( TestBenchElement.class ).id( "scenarioComponent" ).$( TestBenchElement.class ).id( "S0" ).$( FormLayoutElement.class ).first().$( RadioButtonGroupElement.class ).first().$(RadioButtonElement.class).last();
 	}
-	protected SelectElement getMarriageStatus() {
+	protected ListBoxElement getMarriageStatus() {
+		return $( TestBenchElement.class ).id( "scenarioComponent" ).$( TestBenchElement.class ).id( "S0" ).$( FormLayoutElement.class ).first().$( SelectElement.class ).id( "MarriageStatus" ).$(ListBoxElement.class).first();
+	}
+	protected SelectElement getMarriageStatusAccept() {
 		return $( TestBenchElement.class ).id( "scenarioComponent" ).$( TestBenchElement.class ).id( "S0" ).$( FormLayoutElement.class ).first().$( SelectElement.class ).id( "MarriageStatus" );
 	}
-	protected SelectElement getHealthStatus() {
+	protected ListBoxElement getHealthStatus() {
+		return $( TestBenchElement.class ).id( "scenarioComponent" ).$( TestBenchElement.class ).id( "S0" ).$( FormLayoutElement.class ).first().$( SelectElement.class ).id( "PerceptionOfHealth" ).$(ListBoxElement.class).first();
+	}
+	protected SelectElement getHealthStatusAccept() {
 		return $( TestBenchElement.class ).id( "scenarioComponent" ).$( TestBenchElement.class ).id( "S0" ).$( FormLayoutElement.class ).first().$( SelectElement.class ).id( "PerceptionOfHealth" );
 	}
-	protected SelectElement getRelationship() {
+	protected ListBoxElement getRelationship() {
+		return $( TestBenchElement.class ).id( "scenarioComponent" ).$( TestBenchElement.class ).id( "S0" ).$( FormLayoutElement.class ).first().$( SelectElement.class ).id( "RelationshipType" ).$(ListBoxElement.class).first();
+	}
+	protected SelectElement getRelationshipAccept() {
 		return $( TestBenchElement.class ).id( "scenarioComponent" ).$( TestBenchElement.class ).id( "S0" ).$( FormLayoutElement.class ).first().$( SelectElement.class ).id( "RelationshipType" );
 	}
 
 	//Employee
-	protected SelectElement getFullTimePartTime() {
+	protected ListBoxElement getFullTimePartTime() {
+		return $( TestBenchElement.class ).id( "scenarioComponent" ).$( TestBenchElement.class ).id( "Employee" ).$( FormLayoutElement.class ).first().$( SelectElement.class ).id( "FullTimePartTime" ).$(ListBoxElement.class).first();
+	}
+	protected SelectElement getFullTimePartTimeAccept() {
 		return $( TestBenchElement.class ).id( "scenarioComponent" ).$( TestBenchElement.class ).id( "Employee" ).$( FormLayoutElement.class ).first().$( SelectElement.class ).id( "FullTimePartTime" );
 	}
 
@@ -106,18 +133,31 @@ import kotlin.reflect.jvm.internal.impl.descriptors.Visibilities;
 		return $( TestBenchElement.class ).id( "scenarioComponent" ).$( TestBenchElement.class ).id( "Contact" ).$( FormLayoutElement.class ).first().$(CheckboxElement.class).first();
 	}
 	protected TextFieldElement getPhone1() {
-		return $( TestBenchElement.class ).id( "scenarioComponent" ).$( TestBenchElement.class ).id( "Contact" ).$( FormLayoutElement.class ).last().$( TextFieldElement.class ).id( "Phone1" );
+		return $( TestBenchElement.class ).id( "scenarioComponent" ).$( TestBenchElement.class ).id( "Contact" ).$( FormLayoutElement.class ).last().$("PHONE-FIELD").id("Phone1").$(TextFieldElement.class).first();
 	}
-	protected SelectElement getPhoneType1() {
-		return $( TestBenchElement.class ).id( "scenarioComponent" ).$( TestBenchElement.class ).id( "Contact" ).$( FormLayoutElement.class ).last().$( SelectElement.class ).id( "PhoneType1" );
+	protected TextFieldElement getPhone1Accept() {
+		return $( TestBenchElement.class ).id( "scenarioComponent" ).$( TestBenchElement.class ).id( "Contact" ).$( FormLayoutElement.class ).last().$(TextFieldElement.class).id("Phone1");
 	}
+	protected ListBoxElement getPhoneType1() {
+		return $( TestBenchElement.class ).id( "scenarioComponent" ).$( TestBenchElement.class ).id( "Contact" ).$( FormLayoutElement.class ).last().$( SelectElement.class ).id( "PhoneType1" ).$(ListBoxElement.class).first();
+	}
+	protected SelectElement getPhoneType1Accept() {
+		return $( TestBenchElement.class ).id( "scenarioComponent" ).$( TestBenchElement.class ).id( "Contact" ).$( FormLayoutElement.class ).last().$(SelectElement.class).id( "PhoneType1" );
+	}
+
 	protected TextFieldElement getPhone1Extension() {
 		return $( TestBenchElement.class ).id( "scenarioComponent" ).$( TestBenchElement.class ).id( "Contact" ).$( FormLayoutElement.class ).last().$( TextFieldElement.class ).id( "Phone1Extension" );
 	}
 	protected TextFieldElement getPhone2() {
+		return $( TestBenchElement.class ).id( "scenarioComponent" ).$( TestBenchElement.class ).id( "Contact" ).$( FormLayoutElement.class ).last().$("PHONE-FIELD").id( "Phone2" ).$( TextFieldElement.class ).first();
+	}
+	protected TextFieldElement getPhone2Accept() {
 		return $( TestBenchElement.class ).id( "scenarioComponent" ).$( TestBenchElement.class ).id( "Contact" ).$( FormLayoutElement.class ).last().$( TextFieldElement.class ).id( "Phone2" );
 	}
-	protected SelectElement getPhoneType2() {
+	protected ListBoxElement getPhoneType2() {
+		return $( TestBenchElement.class ).id( "scenarioComponent" ).$( TestBenchElement.class ).id( "Contact" ).$( FormLayoutElement.class ).last().$( SelectElement.class ).id( "PhoneType2" ).$(ListBoxElement.class).first();
+	}
+	protected SelectElement getPhoneType2Accept() {
 		return $( TestBenchElement.class ).id( "scenarioComponent" ).$( TestBenchElement.class ).id( "Contact" ).$( FormLayoutElement.class ).last().$( SelectElement.class ).id( "PhoneType2" );
 	}
 	protected TextFieldElement getPhone2Extension() {
@@ -153,6 +193,9 @@ import kotlin.reflect.jvm.internal.impl.descriptors.Visibilities;
 
 		return  $( TestBenchElement.class ).id("viewContent").$("scenario-component").first().$(ButtonElement.class).get( 3 );
 	}
+	protected ComboBoxElement groupID (){
+		return  $( TestBenchElement.class ).id( "scenarioComponent" ).$( TestBenchElement.class ).id( "S0" ).$(ComboBoxElement.class).id("GroupGuid");
+	}
 
 
 
@@ -162,7 +205,7 @@ import kotlin.reflect.jvm.internal.impl.descriptors.Visibilities;
 		for( String[] dataRow : testData ) {
 			String firstName = dataRow[0];
 			String lastName = dataRow[1];
-			String middleName = dataRow[2];
+	//		String middleName = dataRow[2];
 			String taxID = dataRow[3];
 			String email = dataRow[4];
 			String email2 = dataRow[5];
@@ -172,14 +215,44 @@ import kotlin.reflect.jvm.internal.impl.descriptors.Visibilities;
 			String extens2 = dataRow[9];
 			getLastName().sendKeys( lastName );
 			getFirstName().sendKeys( firstName );
-			getMiddleName().setValue( middleName );
+	//		getMiddleName().setValue( middleName );
 			getTaxID().setValue( taxID );
-			getEmail().sendKeys( email );
-			getEmail2().sendKeys( email2 );
-			getPhone1().sendKeys( phone1 );
-			getPhone1Extension().sendKeys( extens1 );
-			getPhone2().sendKeys( phone2 );
-			getPhone2Extension().sendKeys( extens2 );
+			getEmail().setValue( email );
+			getEmail2().setValue( email2 );
+			getPhone1().setValue( phone1 );
+			getPhone1Extension().setValue( extens1 );
+			getPhone2().setValue( phone2 );
+			getPhone2Extension().setValue( extens2 );
+
+
+		}
+
+
+	}
+	public void addFamilyAccept( ) {
+
+		List<String[]> testData = ExcelUtils.readExcelData( "src/test/resources/UnumTestdata.xlsx" );
+		for( String[] dataRow : testData ) {
+			String firstName = dataRow[0];
+			String lastName = dataRow[1];
+			//		String middleName = dataRow[2];
+			String taxID = dataRow[3];
+			String email = dataRow[4];
+			String email2 = dataRow[5];
+			String phone1 = dataRow[6];
+			String phone2 = dataRow[7];
+			String extens1 = dataRow[8];
+			String extens2 = dataRow[9];
+			getLastName().sendKeys( lastName );
+			getFirstName().sendKeys( firstName );
+			//		getMiddleName().setValue( middleName );
+			getTaxID().setValue( taxID );
+			getEmail().setValue( email );
+			getEmail2().setValue( email2 );
+			getPhone1Accept().setValue( phone1 );
+			getPhone1Extension().setValue( extens1 );
+			getPhone2Accept().setValue( phone2 );
+			getPhone2Extension().setValue( extens2 );
 
 
 		}
@@ -193,7 +266,7 @@ import kotlin.reflect.jvm.internal.impl.descriptors.Visibilities;
 		for( String[] dataRow : testData ) {
 			String firstName = dataRow[0];
 			String lastName = dataRow[1];
-			String middleName = dataRow[2];
+	//		String middleName = dataRow[2];
 			String taxID = dataRow[3];
 			String email = dataRow[4];
 			String email2 = dataRow[5];
@@ -203,14 +276,43 @@ import kotlin.reflect.jvm.internal.impl.descriptors.Visibilities;
 			String extens2 = dataRow[9];
 			getLastName().sendKeys( lastName );
 			getFirstName().sendKeys( firstName );
-			getMiddleName().setValue( middleName );
+	//		getMiddleName().setValue( middleName );
 			getTaxID().setValue( taxID );
-			getEmail().sendKeys( email );
-			getEmail2().sendKeys( email2 );
-			getPhone1().sendKeys( phone1 );
-			getPhone1Extension().sendKeys( extens1 );
-			getPhone2().sendKeys( phone2 );
-			getPhone2Extension().sendKeys( extens2 );
+			getEmail().setValue( email );
+			getEmail2().setValue( email2 );
+			getPhone1().setValue( phone1 );
+			getPhone1Extension().setValue( extens1 );
+			getPhone2().setValue( phone2 );
+			getPhone2Extension().setValue( extens2 );
+
+
+		}
+
+	}
+	public void addSpouseAccept( ) {
+
+		List<String[]> testData = ExcelUtils.readExcelData( "src/test/resources/UnumSpouseTestData.xlsx" );
+		for( String[] dataRow : testData ) {
+			String firstName = dataRow[0];
+			String lastName = dataRow[1];
+			//		String middleName = dataRow[2];
+			String taxID = dataRow[3];
+			String email = dataRow[4];
+			String email2 = dataRow[5];
+			String phone1 = dataRow[6];
+			String phone2 = dataRow[7];
+			String extens1 = dataRow[8];
+			String extens2 = dataRow[9];
+			getLastName().sendKeys( lastName );
+			getFirstName().sendKeys( firstName );
+			//		getMiddleName().setValue( middleName );
+			getTaxID().setValue( taxID );
+			getEmail().setValue( email );
+			getEmail2().setValue( email2 );
+			getPhone1Accept().setValue( phone1 );
+			getPhone1Extension().setValue( extens1 );
+			getPhone2Accept().setValue( phone2 );
+			getPhone2Extension().setValue( extens2 );
 
 
 		}
