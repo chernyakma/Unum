@@ -6,8 +6,12 @@ import org.openqa.selenium.Keys;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 
 public class GrouplistBillAcceptIT extends BaseLoginTest {
+    protected LocalDate initialPaidToDate;
+    protected final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM d, yyyy", Locale.ENGLISH);
 
     @Test
     public void suspense() throws InterruptedException {
@@ -59,6 +63,11 @@ public class GrouplistBillAcceptIT extends BaseLoginTest {
         getGroup.searchByGroup().sendKeys( "34090" );
         getGroup.searchButton().click();
         getGroup.family().getCell( "34090" ).click();
+        NaviMenuView getDevivsions=$(NaviMenuView.class).first();
+        getDevivsions.getDivisions().click();
+        ScenarioView getPaidToDate = $(ScenarioView.class).first();
+        String originalDateText = getPaidToDate.paidToDate().getText();
+        initialPaidToDate = LocalDate.parse(originalDateText, formatter);
         NaviMenuView groupBills = $( NaviMenuView.class ).first();
         groupBills.groupBillsAccept().click();
         ScenarioView bills=$(ScenarioView.class).first();
@@ -76,9 +85,17 @@ public class GrouplistBillAcceptIT extends BaseLoginTest {
         suspenseFunding.okFundButton().click();
         ScenarioView payBill = $(ScenarioView.class).first();
         payBill.processBillAccept().click();
-
+  //      EntryDialogContent confirm =$ (EntryDialogContent.class).first();
         VaadinConfirmDialogView confirm = $(VaadinConfirmDialogView.class).first();
         confirm.getSaveButton().click();
+        ScenarioView process = $(ScenarioView.class).first();
+        waitUntil(driver -> process.billInfo().isDisplayed(),80);
+        NaviMenuView devivsions=$(NaviMenuView.class).first();
+        devivsions.getDivisions().click();
+        ScenarioView paidToDate = $(ScenarioView.class).first();
+        String updatedText = paidToDate.paidToDate().getText();
+        LocalDate updatedDate = LocalDate.parse(updatedText, formatter);
+        Assertions.assertEquals(initialPaidToDate.plusMonths(1), updatedDate);
 
     }
 
@@ -116,49 +133,8 @@ public class GrouplistBillAcceptIT extends BaseLoginTest {
         VaadinConfirmDialogView confirm = $(VaadinConfirmDialogView.class).first();
         confirm.getSaveButton().click();
         ScenarioView transactionsPage = $(ScenarioView.class).first();
+
         waitUntil(driver -> !transactionsPage.progressBar().isDisplayed(), 80);
-     /*   transactionsPage.viewLoanTransactionButton().click();
-		Thread.sleep( 5_000 );
-		System.err.println("Screenshot Directory: " + Parameters.getScreenshotReferenceDirectory());
-
-		try {
-			System.err.println("Starting addLoan test...");
-
-
-
-			File referenceScreenshot = ImageFileUtil.getReferenceScreenshotFile("Screenshot 2024-05-31 165801.png");
-			System.err.println("Reference screenshot path: " + referenceScreenshot.getAbsolutePath());
-			System.err.println("Reference screenshot exists: " + referenceScreenshot.exists());
-
-			boolean comparisonResult = testBench().compareScreen(referenceScreenshot);
-			System.err.println("Screenshot comparison result: " + comparisonResult);
-
-			Assert.assertTrue("Screenshot comparison failed", comparisonResult);
-		} catch (Exception e) {
-			System.err.println("An error occurred: " + e.getMessage());
-			e.printStackTrace(System.err);
-
-			// Create error-screenshots directory if it doesn't exist
-			File errorScreenshotDir = new File("error-screenshots");
-			if (!errorScreenshotDir.exists()) {
-				errorScreenshotDir.mkdirs();
-			}
-
-			// Save a failure screenshot with a timestamp
-			String timestamp = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
-			File actualScreenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-			File destination = new File("error-screenshots/failure-" + timestamp + "-Screenshot-2024-05-31-165801.png");
-			FileUtils.copyFile(actualScreenshot, destination);
-			System.err.println("Failure screenshot saved to: " + destination.getAbsolutePath());
-
-			throw e; // Re-throw to fail the test
-		}
-
-
-		TransactionViewPage transactionPage = $(TransactionViewPage.class).first();
-		transactionPage.cancel().click();
-
-      */
         NaviMenuView policy = $(NaviMenuView.class).first();
         policy.getPolicyAccept().click();
         ScenarioView policyPage = $(ScenarioView.class).first();
@@ -184,9 +160,9 @@ public class GrouplistBillAcceptIT extends BaseLoginTest {
         VaadinSelectView getSelectButton = $( VaadinSelectView.class ).first();
         getSelectButton.getSelectItemAccept().selectByText("Search Policy");;
         SearchComponentView getPolicy = $( SearchComponentView.class ).first();
-        getPolicy.searchByPolicy().sendKeys("08D6639609" );
+        getPolicy.searchByPolicy().sendKeys("08D6084896" );
         getPolicy.searchButton().click();
-        getPolicy.family().getCell( "08D6639609" ).click();
+        getPolicy.family().getCell( "08D6084896" ).click();
         NaviMenuView transaction = $( NaviMenuView.class ).first();
         transaction.transactionsAccept().click();
         ScenarioView loanTransaction = $(ScenarioView.class).first();
@@ -232,8 +208,6 @@ public class GrouplistBillAcceptIT extends BaseLoginTest {
         ok.getSaveButton().click();
         ScenarioView deleteLoanTransaction = $(ScenarioView.class).first();
         waitUntil(driver -> !deleteTransaction.progressBar().isDisplayed(), 80);
-
-//		ScenarioView deleteLoanTransaction = $(ScenarioView.class).first();
         deleteLoanTransaction.deleteLoanTransactionButton().click();
         VaadinConfirmDialogView confirmation = $(VaadinConfirmDialogView.class).first();
         confirmation.getSaveButton().click();

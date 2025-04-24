@@ -17,6 +17,8 @@ import org.openqa.selenium.WebElement;
 //@Attribute(name="class",value="navi-item page-item")
 public class NaviMenuView extends TestBenchElement {
 
+	//primary
+
 	protected TestBenchElement getAddresses() {
 
 		return $( TestBenchElement.class ).id( "navi-menu" ).$("IRON-ICON").get( 5 );
@@ -33,11 +35,30 @@ public class NaviMenuView extends TestBenchElement {
 
 		return $( TestBenchElement.class ).id( "navi-menu").$( IconElement.class ).first();
 	}
-
 	protected TestBenchElement getSuspense() {
 
 		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 25 );
 	}
+	protected TestBenchElement getBankInformation() {
+
+		return $( TestBenchElement.class ).id( "navi-menu" ).$("IRON-ICON").get(3);
+	}
+	protected TestBenchElement getBankInformationAccept() {
+
+		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 4 );
+	}
+
+	protected TestBenchElement getFamily() {
+
+		return $( TestBenchElement.class ).id( "navi-menu").$("IRON-ICON").last();
+	}
+	protected TestBenchElement getFamilyAccept() {
+
+		return $( TestBenchElement.class ).id( "navi-menu").$( IconElement.class ).last();
+	}
+
+	//policy
+
 	protected TestBenchElement getApplication() {
 
 		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 1 );
@@ -72,10 +93,13 @@ public class NaviMenuView extends TestBenchElement {
 
 		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get(13 );
 	}
-//SPDA
-	protected TestBenchElement getDocumentSPDA() {
+	protected TestBenchElement getReport() {
 
-		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 13 );
+		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 7 );
+	}
+	protected TestBenchElement getResult() {
+
+		return $( TestBenchElement.class ).id( "navi-menu" ).$("IRON-ICON").get( 5 );
 	}
 
 	protected TestBenchElement getNewBusiness() {
@@ -83,43 +107,17 @@ public class NaviMenuView extends TestBenchElement {
 		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 30 );
 	}
 
-	protected TestBenchElement getBankInformation() {
-
-		return $( TestBenchElement.class ).id( "navi-menu" ).$("IRON-ICON").get(3);
-	}
-	protected TestBenchElement getBankInformationAccept() {
-
-		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 4 );
-	}
-
-
-	protected TestBenchElement getFamily() {
-
-		return $( TestBenchElement.class ).id( "navi-menu").$("IRON-ICON").last();
-	}
-	protected TestBenchElement getFamilyAccept() {
-
-		return $( TestBenchElement.class ).id( "navi-menu").$( IconElement.class ).last();
-	}
-
 	protected TestBenchElement checkIGO() {
 
 		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 25 );
 	}
-	//SPDA
-	protected TestBenchElement checkSpdaIGO() {
-
-		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 20 );
-	}
-	protected TestBenchElement suspenseSpda() {
-
-		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 18 );
-	}
 
 	protected TestBenchElement suspense() {
 
-		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 30 );
+		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 40 );
 	}
+
+	//group
 
 	protected TestBenchElement groupSuspense() {
 
@@ -139,12 +137,13 @@ public class NaviMenuView extends TestBenchElement {
 
 		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 9 );
 	}
+	protected TestBenchElement getDivisions () {
 
-
-	protected TestBenchElement transactionsWL() {
-
-		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 12 );
+		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get(12 );
 	}
+
+	//transactions
+
 	protected TestBenchElement transactions() {
 
 		return $( TestBenchElement.class ).id( "navi-menu" ).$("IRON-ICON").get( 24 );
@@ -161,14 +160,10 @@ public class NaviMenuView extends TestBenchElement {
 
 		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 30 );
 	}
+	protected TestBenchElement policyTransactions() {
 
-	protected TestBenchElement getReport() {
-
-		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 7 );
+		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 33 );
 	}
-	protected TestBenchElement getResult() {
 
-		return $( TestBenchElement.class ).id( "navi-menu" ).$("IRON-ICON").get( 5 );
-	}
 
 }

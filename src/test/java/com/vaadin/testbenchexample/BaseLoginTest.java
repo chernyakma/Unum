@@ -55,15 +55,10 @@ public abstract class BaseLoginTest extends TestBenchTestCase {
 
 
 		setDriver(new ChromeDriver(options));
-		// Perform login or other initial setup
+
 		performLogin();
 
-		// Set TestBench parameters for screenshot comparison
-//	Parameters.setScreenshotReferenceDirectory("src/test/screenshots");
-//		Parameters.setScreenshotReferenceDirectory("/var/lib/jenkins/workspace/NTT/reference-screenshots");
-
 		Parameters.setScreenshotReferenceDirectory(System.getProperty("user.dir") + "/reference-screenshots");
-//		System.out.println("Screenshot Directory: " + Parameters.getScreenshotReferenceDirectory());
 		Parameters.setScreenshotComparisonTolerance(8.0);
 		driver.manage().window().setSize(new Dimension(1024, 768));
 		Parameters.setScreenshotRetryDelay(10);
@@ -75,15 +70,14 @@ public abstract class BaseLoginTest extends TestBenchTestCase {
 	}
 
 
-	// Your login method
+
 
 	private void performLogin() {
 
-	//	getDriver().get( "http://" + IPAddress.findSiteLocalAddress() + ":8080/navy_webui/");
+	//	getDriver().get( "http://" + IPAddress.findSiteLocalAddress() + ":8080/unum_webui/");
 
 	// local
 		getDriver().get("http://localhost:8080/unum_webui/login");
-
 		$( TextFieldElement.class).first().setValue( "jBond");
 		$( PasswordFieldElement.class).first().setValue( "JBond007");
 		$( ButtonElement.class).first().click();
@@ -92,20 +86,14 @@ public abstract class BaseLoginTest extends TestBenchTestCase {
 		getDriver().get("https://unum5Life70.testbed.calcfocus.net/achieve/login");
 
 		WebElement usernameFieldElement = findElement( By.id( "vaadinLoginUsername" ));
-//		usernameFieldElement.click();
 		usernameFieldElement.sendKeys( "jBond" );
 		WebElement passwordFieldElement = findElement( By.id( "vaadinLoginPassword" ));
-//		passwordFieldElement.click();
 		passwordFieldElement.sendKeys( "JBond007" );
 		$( ButtonElement.class).first().click();
 
-//		WebElement buttonElement = findElement( By.id( "signInSubmitButton" ));
-//		TestBenchElement loginButton = ( TestBenchElement )findElement( By.name( "signInSubmitButton" ));
-//		loginButton.click();
+       WebElement buttonElement = findElement( By.id( "signInSubmitButton" ));
+     */
 
-//		$( TextFieldElement.class).id("vaadinLoginUsername").setValue( "jBond");
-//		$( PasswordFieldElement.class).id("vaadinLoginPassword").setValue( "JBond007");
-//		$( ButtonElement.class).first().click();
 	/*	getDriver().get("https://test.everlake.calcfocus.net/achieve/oauth2/login/code/cognito");
 
 		WebElement usernameFieldElement = findElement( By.id( "signInFormUsername" ));

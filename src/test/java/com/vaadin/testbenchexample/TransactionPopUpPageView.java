@@ -13,10 +13,12 @@ public class TransactionPopUpPageView extends TestBenchElement {
 		{return $( SelectElement.class ).id( "typeSelect" );}
 
 	    protected DatePickerElement effectiveDate(){
+
 			return $(DatePickerElement.class).first();
 		}
 	protected TextAreaElement note(){
-		return $(TextAreaElement.class).first();
+
+			return $(TextAreaElement.class).first();
 	}
 	}
 

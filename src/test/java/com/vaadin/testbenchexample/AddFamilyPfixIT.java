@@ -13,21 +13,13 @@ public class AddFamilyPfixIT extends BaseLoginTest {
 	public void addFamily() throws InterruptedException {
 
 	//	getDriver().get("http://localhost:8080/unum_webui/familyInsured");
-		//	getDriver().get( "http://" + IPAddress.findSiteLocalAddress() + ":8080/navy_webui/familyInsured");
-		//	getDriver().get( "https://test.everlake.calcfocus.net/achieve/familyInsured/" );
+		//	getDriver().get( "http://" + IPAddress.findSiteLocalAddress() + ":8080/unum_webui/familyInsured");
 		getDriver().get("https://unum5Life70.testbed.calcfocus.net/achieve/familyInsured");
 		AddFamilyView family = $(AddFamilyView.class).first();
 
 		family.groupID().openPopup();
 		family.groupID().selectByText("41426");
-//		family.groupID().sendKeys( Keys.ARROW_DOWN, Keys.ARROW_DOWN, Keys.ARROW_DOWN );
-//		family.groupID().sendKeys( Keys.ENTER );
-
 		family.addFamily();
-//		family.getSuffix().selectItemByIndex(1);
-//		family.getGender().openPopup();
-//		System.out.println(family.getGender().getTagName());
-//		Thread.sleep( 3_000 );
 		family.getGender().selectByText("Male");
 		family.getDateOfBirth().setDate(LocalDate.of(1960, 10, 15));
 		family.getTobaccoUse().doubleClick();
@@ -59,7 +51,6 @@ public class AddFamilyPfixIT extends BaseLoginTest {
 		AddFamilyView family = $(AddFamilyView.class).first();
 		family.getRelationship().selectByText("Spouse/Partner");
 		family.addSpouse();
-//		family.getSuffix().selectItemByIndex(2);
 		family.getSpouseGender().selectByText("Female");
 		family.getDateOfBirth().setDate(LocalDate.of(1965, 01, 05));
 		family.getNonTobacco().doubleClick();
@@ -74,8 +65,6 @@ public class AddFamilyPfixIT extends BaseLoginTest {
 //		Assertions.assertEquals("1/5/1965", family.getDateOfBirth().getInputValue());
 		family.getSaveButton().click();
 		family.FamilyButton().click();
-		//	NaviMenuView getFamilybutton = $( NaviMenuView.class ).first();
-		//	getFamilybutton.getFamily().click();
 		ScenarioView deleteMember = $(ScenarioView.class).first();
 		deleteMember.getDeleteSpouseButton().click();
 		VaadinDialogView deleteSpouse = $(VaadinDialogView.class).first();
@@ -98,7 +87,6 @@ public class AddFamilyPfixIT extends BaseLoginTest {
 		AddFamilyView family = $(AddFamilyView.class).first();
 		family.getRelationship().selectByText("Spouse/Partner");
 		family.addSpouse();
-//		family.getSuffix().selectItemByIndex(2);
 		family.getSpouseGender().selectByText("Female");
 		family.getDateOfBirth().setDate(LocalDate.of(1970, 01, 05));
 		family.getNonTobacco().doubleClick();
@@ -113,8 +101,6 @@ public class AddFamilyPfixIT extends BaseLoginTest {
 //		Assertions.assertEquals("1/5/1970", family.getDateOfBirth().getInputValue());
 		family.getSaveButton().click();
 		family.FamilyButton().click();
-		//	NaviMenuView getFamilybutton = $( NaviMenuView.class ).first();
-		//	getFamilybutton.getFamily().click();
 		ScenarioView deleteMember = $(ScenarioView.class).first();
 		deleteMember.getDeleteSpouseButton().click();
 		VaadinDialogView deleteSpouse = $(VaadinDialogView.class).first();
@@ -176,27 +162,27 @@ public class AddFamilyPfixIT extends BaseLoginTest {
 		setAddress.getState().selectByText("VA");
 		setAddress.getAddressType().selectByText("Mailing");
 		Assertions.assertEquals("Mailing", setAddress.getAddressType().getSelectedText());
-//	setAddress.getDefaultMailing().click();
-//	setAddress.getDefaultBilling().click();
+//	    setAddress.getDefaultMailing().click();
+//	    setAddress.getDefaultBilling().click();
 //		setAddress.getDefaultResidence().click();
 		Assertions.assertEquals("VA", setAddress.getState().getSelectedText());
 		Assertions.assertEquals("74 River Street", setAddress.getLine1().getValue());
 		Assertions.assertEquals("25 Main Street", setAddress.getLine2().getValue());
-//	Assertions.assertTrue( setAddress.getDefaultMailing().isChecked() );
-//		Assertions.assertTrue(setAddress.getDefaultResidence().isChecked());
-//	Assertions.assertTrue( setAddress.getDefaultResidence().isChecked() );
+//	    Assertions.assertTrue( setAddress.getDefaultMailing().isChecked() );
+//	    Assertions.assertTrue(setAddress.getDefaultResidence().isChecked());
+//	    Assertions.assertTrue( setAddress.getDefaultResidence().isChecked() );
 		setAddress.getOkButton().click();
 //		addAddress.getSaveButton().click();
-
-//	EntryDialogContent ok = $(EntryDialogContent.class).first();
-//	waitUntil(driver -> ok.okButton().isDisplayed(), 80);
-//	ok.okButton().click();
-//		addAddress.getDeleteButton().click();
-//		addAddress.getSaveButton().click();
-//	EntryDialogContent confirm = $(EntryDialogContent.class).first();
-//	waitUntil(driver -> confirm.okButton().isDisplayed(), 80);
-//	confirm.okButton().click();
-
+/*
+    	EntryDialogContent ok = $(EntryDialogContent.class).first();
+    	waitUntil(driver -> ok.okButton().isDisplayed(), 80);
+    	ok.okButton().click();
+ 		addAddress.getDeleteButton().click();
+		addAddress.getSaveButton().click();
+    	EntryDialogContent confirm = $(EntryDialogContent.class).first();
+    	waitUntil(driver -> confirm.okButton().isDisplayed(), 80);
+    	confirm.okButton().click();
+*/
 	}
 
 	@Test
@@ -262,16 +248,10 @@ public class AddFamilyPfixIT extends BaseLoginTest {
 		Thread.sleep(5_000);
 		VaadinDialogView confirm = $(VaadinDialogView.class).first();
 		confirm.getOkButton().click();
-//		ScenarioView save = $(ScenarioView.class).first();
-//		save.getSaveButton().click();
-
 		NaviMenuView family = $(NaviMenuView.class).first();
 		family.getFamily().click();
 		ScenarioView getBeneficiary = $(ScenarioView.class).first();
 		Assertions.assertTrue(getBeneficiary.family().getCell("Potter").isDisplayed());
-//		getBeneficiary.getDeleteFamilyBeneButton().click();
-//		VaadinConfirmDialogView delete = $(VaadinConfirmDialogView.class).first();
-//		delete.getSaveButton().click();
 		getBeneficiary.policyNumber().getCell("08D6497665").click();
 		family.beneficiaries().click();
 		ScenarioView deleteBene = $(ScenarioView.class).first();

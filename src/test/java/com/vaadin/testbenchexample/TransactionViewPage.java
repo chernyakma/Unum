@@ -1,6 +1,7 @@
 package com.vaadin.testbenchexample;
 
 import com.vaadin.flow.component.button.testbench.ButtonElement;
+import com.vaadin.flow.component.datepicker.testbench.DatePickerElement;
 import com.vaadin.flow.component.progressbar.testbench.ProgressBarElement;
 import com.vaadin.flow.component.select.testbench.SelectElement;
 import com.vaadin.testbench.TestBenchElement;
@@ -14,7 +15,11 @@ public class TransactionViewPage extends TestBenchElement {
 		return $( ButtonElement.class ).last();}
 
 
-protected ProgressBarElement progressBar (){
-	return $(ProgressBarElement.class).first();
+    protected ProgressBarElement progressBar (){
+		return $(ProgressBarElement.class).first();
 
-}}
+}
+    protected DatePickerElement date (){
+		return $(DatePickerElement.class).first();
+	}
+}

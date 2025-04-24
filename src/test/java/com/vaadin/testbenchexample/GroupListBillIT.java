@@ -44,9 +44,7 @@ public class GroupListBillIT extends BaseLoginTest {
 		transferSuspence.transferAmount().setValue( "59.00" );
 		Assertions.assertEquals( "59.00",transferSuspence.transferAmount().getValue() );
 		transferSuspence.transferEffectveDate().setDate( LocalDate.now() );
-//		transferSuspence.note().sendKeys( "transfer" );
 		transferSuspence.okButton().click();
-//		ScenarioView suspenceAmount=$(ScenarioView.class).first();
 
 	}
 
@@ -99,63 +97,16 @@ public class GroupListBillIT extends BaseLoginTest {
 		loan.loanAmount().sendKeys("300");
 		loan.specialHandling().click();
 		loan.specialHandling().selectByText("None");
-//		loan.disbursementMethod().selectByText( "Check Disbursement" );
-//		Assertions.assertEquals( "1,000.00",loan.loanAmount().getValue() );
 		Thread.sleep( 5_000 );
 		loan.approved().click();
 		loan.okButton().click();
-//		NaviMenuView seeTransaction = $(NaviMenuView.class).first();
-//		seeTransaction.getResult().click();
-
 		ScenarioView processLoanTransaction = $(ScenarioView.class).first();
 		processLoanTransaction.processInitialPremiumTransactionButton().click();
 		VaadinDialogView confirm = $(VaadinDialogView.class).first();
 		confirm.getConfirmButton().click();
 		ScenarioView transactionsPage = $(ScenarioView.class).first();
 		waitUntil(driver -> !transactionsPage.progressBar().isDisplayed(), 80);
-     /*   transactionsPage.viewLoanTransactionButton().click();
-		Thread.sleep( 5_000 );
-		System.err.println("Screenshot Directory: " + Parameters.getScreenshotReferenceDirectory());
-
-		try {
-			System.err.println("Starting addLoan test...");
-
-
-
-			File referenceScreenshot = ImageFileUtil.getReferenceScreenshotFile("Screenshot 2024-05-31 165801.png");
-			System.err.println("Reference screenshot path: " + referenceScreenshot.getAbsolutePath());
-			System.err.println("Reference screenshot exists: " + referenceScreenshot.exists());
-
-			boolean comparisonResult = testBench().compareScreen(referenceScreenshot);
-			System.err.println("Screenshot comparison result: " + comparisonResult);
-
-			Assert.assertTrue("Screenshot comparison failed", comparisonResult);
-		} catch (Exception e) {
-			System.err.println("An error occurred: " + e.getMessage());
-			e.printStackTrace(System.err);
-
-			// Create error-screenshots directory if it doesn't exist
-			File errorScreenshotDir = new File("error-screenshots");
-			if (!errorScreenshotDir.exists()) {
-				errorScreenshotDir.mkdirs();
-			}
-
-			// Save a failure screenshot with a timestamp
-			String timestamp = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
-			File actualScreenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-			File destination = new File("error-screenshots/failure-" + timestamp + "-Screenshot-2024-05-31-165801.png");
-			FileUtils.copyFile(actualScreenshot, destination);
-			System.err.println("Failure screenshot saved to: " + destination.getAbsolutePath());
-
-			throw e; // Re-throw to fail the test
-		}
-
-
-		TransactionViewPage transactionPage = $(TransactionViewPage.class).first();
-		transactionPage.cancel().click();
-
-      */
-		NaviMenuView policy = $(NaviMenuView.class).first();
+     	NaviMenuView policy = $(NaviMenuView.class).first();
 		policy.getPolicy().click();
 		ScenarioView policyPage = $(ScenarioView.class).first();
 		Assertions.assertEquals( "300.00",policyPage.loanBalance().getValue());

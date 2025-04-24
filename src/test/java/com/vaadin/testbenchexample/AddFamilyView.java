@@ -178,10 +178,11 @@ import kotlin.reflect.jvm.internal.impl.descriptors.Visibilities;
 	protected ButtonElement getSaveButton () {
 		return $( TestBenchElement.class ).id( "scenarioComponent" ).$(TestBenchElement.class).id ("componentContent").$( TestBenchElement.class ).id( "buttons" ).$( ButtonElement.class).first();
 	}
+
+	// bank
 	protected ButtonElement addBankButton(){
 		return  $( TestBenchElement.class ).id("viewContent").$("scenario-component").first().$(TestBenchElement.class).id( "BankAccountsTableSection" ).$( TestBenchElement.class ).id( "BankAccountsTable" ).$(ButtonElement.class).first();
 	}
-
 	protected ButtonElement deleteBankButton(){
 		return  $( TestBenchElement.class ).id("viewContent").$("scenario-component").first().$(TestBenchElement.class).id( "BankAccountsTableSection" ).$( TestBenchElement.class ).id( "BankAccountsTable" ).$(ButtonElement.class).get( 3 );
 	}
@@ -189,10 +190,14 @@ import kotlin.reflect.jvm.internal.impl.descriptors.Visibilities;
 
 		return  $( TestBenchElement.class ).id("viewContent").$("scenario-component").first().$(TestBenchElement.class).id( "BankAccountsTableSection" ).$( TestBenchElement.class ).id( "BankAccountsTable" ).$(ButtonElement.class).get( 1 );
 	}
+
+	//family
 	protected ButtonElement FamilyButton(){
 
 		return  $( TestBenchElement.class ).id("viewContent").$("scenario-component").first().$(ButtonElement.class).get( 3 );
 	}
+
+	// group
 	protected ComboBoxElement groupID (){
 		return  $( TestBenchElement.class ).id( "scenarioComponent" ).$( TestBenchElement.class ).id( "S0" ).$(ComboBoxElement.class).id("GroupGuid");
 	}
