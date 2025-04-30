@@ -27,13 +27,13 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 
 public abstract class BaseLoginTest extends TestBenchTestCase {
 
-/*
+
 
 		@After
 	public void tearDown() throws Exception {
 			getDriver().quit();
 	}
-*/
+
 	@Before
 	public void setUp() {
 		// Configure download preferences for Chrome
@@ -46,7 +46,7 @@ public abstract class BaseLoginTest extends TestBenchTestCase {
 
 		// Set Chrome options
 		ChromeOptions options = new ChromeOptions();
-//		options.addArguments("--headless", "--disable-gpu");
+		options.addArguments("--headless", "--disable-gpu");
 		options.setExperimentalOption("prefs", prefs);
 		WebDriverManager.chromedriver().setup();
 //		WebDriver driver = new ChromeDriver();
@@ -77,6 +77,7 @@ public abstract class BaseLoginTest extends TestBenchTestCase {
 	//	getDriver().get( "http://" + IPAddress.findSiteLocalAddress() + ":8080/unum_webui/");
 
 	// local
+	/*
 		getDriver().get("http://localhost:8080/unum_webui/login");
 		$( TextFieldElement.class).first().setValue( "jBond");
 		$( PasswordFieldElement.class).first().setValue( "JBond007");
@@ -94,7 +95,8 @@ public abstract class BaseLoginTest extends TestBenchTestCase {
        WebElement buttonElement = findElement( By.id( "signInSubmitButton" ));
      */
 
-	/*	getDriver().get("https://test.everlake.calcfocus.net/achieve/oauth2/login/code/cognito");
+		getDriver().get("https://acpt-achieve-nonsso.unum.calcfocus.net/achieve/oauth2/login/code/cognito");
+//		https://acpt-achieve-nonsso.unum.calcfocus.net/achieve/home
 
 		WebElement usernameFieldElement = findElement( By.id( "signInFormUsername" ));
 		usernameFieldElement.click();
@@ -111,7 +113,7 @@ public abstract class BaseLoginTest extends TestBenchTestCase {
 
 
 
-*/
+
 
 
 	}

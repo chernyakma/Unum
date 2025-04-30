@@ -18,16 +18,16 @@ public class GrouplistBillAcceptIT extends BaseLoginTest {
         VaadinSelectView getSelectButton = $( VaadinSelectView.class ).first();
         getSelectButton.getSelectItemAccept().selectByText("Search Group");;
         SearchComponentView getGroup = $( SearchComponentView.class ).first();
-        getGroup.searchByGroup().sendKeys( "34090" );
+        getGroup.searchByGroup().sendKeys( "09010" );
         getGroup.searchButton().click();
-        getGroup.family().getCell( "34090" ).click();
+        getGroup.family().getCell( "09010" ).click();
         NaviMenuView addSuspense = $( NaviMenuView.class ).first();
         addSuspense.groupSuspenseAccept().click();
         ScenarioView addSuspenseButton = $( ScenarioView.class ).first();
         addSuspenseButton.addSuspenceButton().click();
         EntryDialogContent suspenseSource = $( EntryDialogContent.class ).first();
-        suspenseSource.suspenseAmountAccept().setValue( "59.00" );
-        Assertions.assertEquals( "59.00",suspenseSource.suspenseAmountAccept().getValue() );
+        suspenseSource.suspenseAmountAccept().setValue( "70.00" );
+        Assertions.assertEquals( "70.00",suspenseSource.suspenseAmountAccept().getValue() );
         suspenseSource.suspenseSourceAccept().selectByText( "Check" );
         Assertions.assertEquals( "Check",suspenseSource.suspenseSourceAccept().getSelectedText() );
         suspenseSource.depositAccountAccept().selectByText( "General Premium" );
@@ -42,12 +42,12 @@ public class GrouplistBillAcceptIT extends BaseLoginTest {
         //	transferSuspence.note().sendKeys( "123" );
         //	transferSuspence.toAccount().focus();
         transferSuspence.toAccountAccept().selectByText( "Group" );
-        transferSuspence.searchFamily().sendKeys( "34090" );
+        transferSuspence.searchFamily().sendKeys( "09010" );
         transferSuspence.search().doubleClick();
-        transferSuspence.family().getCell( "34090" ).click();
+        transferSuspence.family().getCell( "09010" ).click();
         transferSuspence.toAccountAccept().selectByText( "List Bill" );
-        transferSuspence.transferAmountAccept().setValue( "59.00" );
-        Assertions.assertEquals( "59.00",transferSuspence.transferAmountAccept().getValue() );
+        transferSuspence.transferAmountAccept().setValue( "70.00" );
+        Assertions.assertEquals( "70.00",transferSuspence.transferAmountAccept().getValue() );
         transferSuspence.transferEffectveDate().setDate( LocalDate.now() );
 //		transferSuspence.note().sendKeys( "transfer" );
         transferSuspence.okButton().click();
@@ -60,9 +60,9 @@ public class GrouplistBillAcceptIT extends BaseLoginTest {
         VaadinSelectView getSelectButton = $( VaadinSelectView.class ).first();
         getSelectButton.getSelectItemAccept().selectByText("Search Group");;
         SearchComponentView getGroup = $( SearchComponentView.class ).first();
-        getGroup.searchByGroup().sendKeys( "34090" );
+        getGroup.searchByGroup().sendKeys( "09010" );
         getGroup.searchButton().click();
-        getGroup.family().getCell( "34090" ).click();
+        getGroup.family().getCell( "09010" ).click();
         NaviMenuView getDevivsions=$(NaviMenuView.class).first();
         getDevivsions.getDivisions().click();
         ScenarioView getPaidToDate = $(ScenarioView.class).first();
@@ -76,7 +76,7 @@ public class GrouplistBillAcceptIT extends BaseLoginTest {
 
         bills.reconcileAccept().click();
 
-        Thread.sleep(3_000);
+        Thread.sleep(7_000);
         bills.suspenseFundingAccept().click();
 
         EntryDialogContent suspenseFunding = $(EntryDialogContent.class).first();
@@ -104,9 +104,9 @@ public class GrouplistBillAcceptIT extends BaseLoginTest {
         VaadinSelectView getSelectButton = $( VaadinSelectView.class ).first();
         getSelectButton.getSelectItemAccept().selectByText("Search Policy");;
         SearchComponentView getPolicy = $( SearchComponentView.class ).first();
-        getPolicy.searchByPolicy().sendKeys( "08D6084896" );
+        getPolicy.searchByPolicy().sendKeys( "08D9455953" );
         getPolicy.searchButton().click();
-        getPolicy.family().getCell( "08D6084896" ).click();
+        getPolicy.family().getCell( "08D9455953" ).click();
         NaviMenuView transaction = $( NaviMenuView.class ).first();
         transaction.transactionsLoanAccept().click();
         ScenarioView loanTransaction = $(ScenarioView.class).first();
@@ -115,8 +115,8 @@ public class GrouplistBillAcceptIT extends BaseLoginTest {
 		TransactionPopUpPageView selectTransaction = $(TransactionPopUpPageView.class).first();
         selectTransaction.transactionType().selectByText( "Loan" );
         EntryDialogContent loan = $(EntryDialogContent.class).first();
-        loan.loanAmountAccept().sendKeys( Keys.chord( Keys.CONTROL, "a" ), "300" );
-        loan.loanAmountAccept().sendKeys("300");
+        loan.loanAmountAccept().sendKeys( Keys.chord( Keys.CONTROL, "a" ), "500" );
+        loan.loanAmountAccept().sendKeys("500");
         loan.specialHandlingAccept().click();
         loan.specialHandlingAccept().selectByText("None");
 //		loan.disbursementMethod().selectByText( "Check Disbursement" );
@@ -138,7 +138,7 @@ public class GrouplistBillAcceptIT extends BaseLoginTest {
         NaviMenuView policy = $(NaviMenuView.class).first();
         policy.getPolicyAccept().click();
         ScenarioView policyPage = $(ScenarioView.class).first();
-        Assertions.assertEquals( "300.00",policyPage.loanBalanceAccept().getValue());
+        Assertions.assertEquals( "500.00",policyPage.loanBalanceAccept().getValue());
         NaviMenuView transactions = $(NaviMenuView.class).first();
         transactions.transactionsLoanAccept().click();
         ScenarioView deleteTransaction = $(ScenarioView.class).first();
@@ -160,9 +160,9 @@ public class GrouplistBillAcceptIT extends BaseLoginTest {
         VaadinSelectView getSelectButton = $( VaadinSelectView.class ).first();
         getSelectButton.getSelectItemAccept().selectByText("Search Policy");;
         SearchComponentView getPolicy = $( SearchComponentView.class ).first();
-        getPolicy.searchByPolicy().sendKeys("08D6084896" );
+        getPolicy.searchByPolicy().sendKeys("08D6791820" );
         getPolicy.searchButton().click();
-        getPolicy.family().getCell( "08D6084896" ).click();
+        getPolicy.family().getCell( "08D6791820" ).click();
         NaviMenuView transaction = $( NaviMenuView.class ).first();
         transaction.transactionsAccept().click();
         ScenarioView loanTransaction = $(ScenarioView.class).first();
@@ -191,7 +191,7 @@ public class GrouplistBillAcceptIT extends BaseLoginTest {
 
         waitUntil(driver -> !transactionsPage.progressBar().isDisplayed(), 60);
 
-        Assertions.assertEquals( "$67.60",transactionsPage.modalPremium().getText() );
+        Assertions.assertEquals( "$11.27",transactionsPage.modalPremium().getText() );
 
 /*		ScenarioView transactionsPage = $(ScenarioView.class).first();
 		transactionsPage.viewLoanTransactionButton().click();

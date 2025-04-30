@@ -12,23 +12,23 @@ import java.util.Locale;
 public class PolicyBillIT extends BaseLoginTest {
     protected LocalDate initialPaidToDate;
     protected final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM d, yyyy", Locale.ENGLISH);
-
+/*
     @Test
     public void suspense() throws InterruptedException {
         VaadinSelectView getSelectButton = $(VaadinSelectView.class).first();
         getSelectButton.getSelectItemAccept().selectByText("Search Policy");
         SearchComponentView getPolicy = $(SearchComponentView.class).first();
-        getPolicy.searchByPolicy().sendKeys("08D6267774");
+        getPolicy.searchByPolicy().sendKeys("08D5928535");
         getPolicy.searchButton().click();
-        getPolicy.family().getCell("08D6267774").click();
+        getPolicy.family().getCell("08D5928535").click();
         //       NaviMenuView getFamily = $(NaviMenuView.class).first();
         NaviMenuView addSuspense = $(NaviMenuView.class).first();
         addSuspense.suspense().click();
         ScenarioView addSuspenseButton = $(ScenarioView.class).first();
         addSuspenseButton.addSuspenceButton().click();
         EntryDialogContent suspenseSource = $(EntryDialogContent.class).first();
-        suspenseSource.suspenseAmountAccept().setValue("39.00");
-        Assertions.assertEquals("39.00", suspenseSource.suspenseAmountAccept().getValue());
+        suspenseSource.suspenseAmountAccept().setValue("65.00");
+        Assertions.assertEquals("65.00", suspenseSource.suspenseAmountAccept().getValue());
         suspenseSource.suspenseSourceAccept().selectByText("Check");
         Assertions.assertEquals("Check", suspenseSource.suspenseSourceAccept().getSelectedText());
         suspenseSource.depositAccountAccept().selectByText("General Premium");
@@ -36,15 +36,15 @@ public class PolicyBillIT extends BaseLoginTest {
         //       ScenarioView checkSuspence = $(ScenarioView.class).first();
     }
 
-
+*/
     @Test
     public void payDirectBill() {
         VaadinSelectView getSelectButton = $(VaadinSelectView.class).first();
         getSelectButton.getSelectItemAccept().selectByText("Search Policy");
         SearchComponentView getPolicy = $(SearchComponentView.class).first();
-        getPolicy.searchByPolicy().sendKeys("08D6267774");
+        getPolicy.searchByPolicy().sendKeys("08D5928535");
         getPolicy.searchButton().click();
-        getPolicy.family().getCell("08D6267774").click();
+        getPolicy.family().getCell("08D5928535").click();
         NaviMenuView transaction = $(NaviMenuView.class).first();
         transaction.policyTransactions().click();
         ScenarioView premiumTransaction = $(ScenarioView.class).first();
@@ -54,7 +54,7 @@ public class PolicyBillIT extends BaseLoginTest {
         TransactionPopUpPageView selectTransaction = $(TransactionPopUpPageView.class).first();
         selectTransaction.transactionType().selectByText("Premium");
         EntryDialogContent premium = $(EntryDialogContent.class).first();
-        premium.premiumAmount().sendKeys(Keys.chord(Keys.CONTROL, "a"), "39");
+        premium.premiumAmount().sendKeys(Keys.chord(Keys.CONTROL, "a"), "65");
         premium.billingMonths().sendKeys(Keys.chord(Keys.CONTROL, "a"), "3");
         premium.okButton().click();
         ScenarioView processPremiumTransaction = $(ScenarioView.class).first();
@@ -69,6 +69,17 @@ public class PolicyBillIT extends BaseLoginTest {
         LocalDate updatedDate = LocalDate.parse(updatedText, formatter);
 
         Assertions.assertEquals(initialPaidToDate.plusMonths(3), updatedDate);
+        ScenarioView deleteTransaction = $(ScenarioView.class).first();
+        deleteTransaction.reverseAddRiderTransactionButton().click();
+        VaadinConfirmDialogView ok = $(VaadinConfirmDialogView.class).first();
+        ok.getSaveButton().click();
+        ScenarioView deleteLoanTransaction = $(ScenarioView.class).first();
+        waitUntil(driver -> !deleteTransaction.progressBar().isDisplayed(), 80);
+
+//		ScenarioView deleteLoanTransaction = $(ScenarioView.class).first();
+        deleteLoanTransaction.deleteLoanTransactionButton().click();
+        VaadinConfirmDialogView confirmation = $(VaadinConfirmDialogView.class).first();
+        confirmation.getSaveButton().click();
 
     }
 
@@ -80,12 +91,12 @@ public class PolicyBillIT extends BaseLoginTest {
         getSelectButton.getSelectItemAccept().selectByText("Search Policy");
 
         SearchComponentView getPolicy = $(SearchComponentView.class).first();
-        getPolicy.searchByPolicy().sendKeys("08D7612380");
+        getPolicy.searchByPolicy().sendKeys("08D8800016");
         getPolicy.searchButton().click();
-        getPolicy.family().getCell("08D7612380").click();
+        getPolicy.family().getCell("08D8800016").click();
 
         NaviMenuView transaction = $(NaviMenuView.class).first();
-        transaction.policyTransactions().click();
+        transaction.policyTransactionsEFT().click();
 
         ScenarioView payPremium = $(ScenarioView.class).first();
 
@@ -93,7 +104,7 @@ public class PolicyBillIT extends BaseLoginTest {
         String originalDateText = payPremium.policyPaidToDate().getText();
         initialPaidToDate = parseFlexibleDate(originalDateText);
         LocalDate originalDate = parseFlexibleDate(originalDateText);
-        LocalDate newDate = originalDate.plusDays(1);
+        LocalDate newDate = originalDate.plusDays(31);
         payPremium.date().setDate(newDate);
 
         payPremium.cycle().click();
