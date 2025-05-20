@@ -152,6 +152,10 @@ public class NaviMenuView extends TestBenchElement {
 
 		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 33 );
 	}
+	protected TestBenchElement groupTransactionsAccept() {
+
+		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 27 );
+	}
 	protected TestBenchElement transactionsLoan() {
 
 		return $( TestBenchElement.class ).id( "navi-menu" ).$("IRON-ICON").get( 27 );

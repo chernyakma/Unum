@@ -207,6 +207,18 @@ public class ScenarioView extends TestBenchElement {
 
 		return $( TestBenchElement.class ).id( "viewContent" ).$( "scenario-component" ).first().$( TestBenchElement.class ).id( "titleLayout").$( TestBenchElement.class).id( "summaryTable").$( TestBenchElement.class).id( "componentContent" ).findElements( By.className( "summary-column-value" )).get( 9 );
 	}
+	protected ButtonElement addGroupTransactionButton() {
+
+		return $(TestBenchElement.class).id("viewContent").$("scenario-component").first().$(TestBenchElement.class).id("fieldLayout").$("transactions-view-page").first().$(TestBenchElement.class).id("toolbar").$(ButtonElement.class).first();
+	}
+	protected ButtonElement processFirstTransactionButton() {
+
+		return $(TestBenchElement.class).id("viewContent").$("scenario-component").first().$(TestBenchElement.class).id("fieldLayout").$("transactions-view-page").first().$(TestBenchElement.class).id("content").$("search-component").first().$(ButtonElement.class).get(1);
+	}
+	protected GridElement manualBillTransactionStatus() {
+		return $(TestBenchElement.class).id("viewContent").$("scenario-component").first().$(TestBenchElement.class).id("fieldLayout").$("transactions-view-page").first().$(TestBenchElement.class).id("content").$("search-component").first().$(GridElement.class).first();
+	}
+
 
 
 	// suspense

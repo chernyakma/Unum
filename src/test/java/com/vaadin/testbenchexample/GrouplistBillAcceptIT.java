@@ -36,6 +36,7 @@ public class GrouplistBillAcceptIT extends BaseLoginTest {
 //				Assertions.assertEquals( "$100,000.00",checkSuspence.suspenceBalance().getText() );
 
         checkSuspence.transferSuspenceButton().click();
+        Thread.sleep( 3_000 );
         EntryDialogContent transferSuspence = $(EntryDialogContent.class).first();
         transferSuspence.fromAccountAccept().selectByText( "General Premium" );
         //	EntryDialogContent transferSuspenceTo = $(EntryDialogContent.class).first();
@@ -52,6 +53,38 @@ public class GrouplistBillAcceptIT extends BaseLoginTest {
 //		transferSuspence.note().sendKeys( "transfer" );
         transferSuspence.okButton().click();
 //		ScenarioView suspenceAmount=$(ScenarioView.class).first();
+
+    }
+    @Test
+    public void addManualGroupBill() throws InterruptedException {
+        VaadinSelectView getSelectButton = $(VaadinSelectView.class).first();
+        getSelectButton.getSelectItemAccept().selectByText("Search Group");
+        ;
+        SearchComponentView getGroup = $(SearchComponentView.class).first();
+        getGroup.searchByGroup().sendKeys("09010");
+        getGroup.searchButton().click();
+        getGroup.family().getCell("09010").click();
+        NaviMenuView transaction = $( NaviMenuView.class ).first();
+        transaction.groupTransactionsAccept().click();
+        ScenarioView groupTransaction = $(ScenarioView.class).first();
+        groupTransaction.addGroupTransactionButton().click();
+ //       EntryDialogContent selectTransaction = $(EntryDialogContent.class).first();
+		TransactionPopUpPageView selectTransaction = $(TransactionPopUpPageView.class).first();
+        selectTransaction.transactionType().selectByText( "Group Manual Bill" );
+        EntryDialogContent confirmTransaction = $(EntryDialogContent.class).first();
+        confirmTransaction.okButton().click();
+        ScenarioView processManualBillTransaction = $(ScenarioView.class).first();
+        processManualBillTransaction.processFirstTransactionButton().click();
+        Thread.sleep( 3_000 );
+  //      VaadinDialogView confirm = $(VaadinDialogView.class).first();
+  //      confirm.getConfirmButton().click();
+        VaadinConfirmDialogView confirm = $(VaadinConfirmDialogView.class).first();
+        confirm.getSaveButton().click();
+        ScenarioView transactionsPage = $(ScenarioView.class).first();
+        waitUntil(driver -> !transactionsPage.progressBar().isDisplayed(), 80);
+//		System.out.println(transactionsPage.transactionStatus().getCell("Active").getText());
+//		Assertions.assertFalse(transactionsPage.transactionStatus().getCell("Pending").isDisplayed());
+        Assertions.assertTrue(transactionsPage.manualBillTransactionStatus().getCell("Active").isDisplayed());
 
     }
 
