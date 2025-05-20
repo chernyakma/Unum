@@ -4,6 +4,7 @@ import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.Keys;
 
+import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -91,9 +92,9 @@ public class PolicyBillIT extends BaseLoginTest {
         getSelectButton.getSelectItemAccept().selectByText("Search Policy");
 
         SearchComponentView getPolicy = $(SearchComponentView.class).first();
-        getPolicy.searchByPolicy().sendKeys("08D8800016");
+        getPolicy.searchByPolicy().sendKeys("08D5892165");
         getPolicy.searchButton().click();
-        getPolicy.family().getCell("08D8800016").click();
+        getPolicy.family().getCell("08D5892165").click();
 
         NaviMenuView transaction = $(NaviMenuView.class).first();
         transaction.policyTransactionsEFT().click();
@@ -104,7 +105,12 @@ public class PolicyBillIT extends BaseLoginTest {
         String originalDateText = payPremium.policyPaidToDate().getText();
         initialPaidToDate = parseFlexibleDate(originalDateText);
         LocalDate originalDate = parseFlexibleDate(originalDateText);
-        LocalDate newDate = originalDate.plusDays(31);
+        LocalDate newDate = originalDate.plusDays(1);
+        if (newDate.getDayOfWeek() == DayOfWeek.SATURDAY) {
+            newDate = newDate.plusDays(2);
+        } else if (newDate.getDayOfWeek() == DayOfWeek.SUNDAY) {
+            newDate = newDate.plusDays(1);
+        }
         payPremium.date().setDate(newDate);
 
         payPremium.cycle().click();

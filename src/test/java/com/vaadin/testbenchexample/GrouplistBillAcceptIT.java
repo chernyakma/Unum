@@ -104,9 +104,9 @@ public class GrouplistBillAcceptIT extends BaseLoginTest {
         VaadinSelectView getSelectButton = $( VaadinSelectView.class ).first();
         getSelectButton.getSelectItemAccept().selectByText("Search Policy");;
         SearchComponentView getPolicy = $( SearchComponentView.class ).first();
-        getPolicy.searchByPolicy().sendKeys( "08D9455953" );
+        getPolicy.searchByPolicy().sendKeys( "08D8621791" );
         getPolicy.searchButton().click();
-        getPolicy.family().getCell( "08D9455953" ).click();
+        getPolicy.family().getCell( "08D8621791" ).click();
         NaviMenuView transaction = $( NaviMenuView.class ).first();
         transaction.transactionsLoanAccept().click();
         ScenarioView loanTransaction = $(ScenarioView.class).first();

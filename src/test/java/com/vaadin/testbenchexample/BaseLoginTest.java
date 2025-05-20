@@ -28,12 +28,12 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 public abstract class BaseLoginTest extends TestBenchTestCase {
 
 
-
+/*
 		@After
 	public void tearDown() throws Exception {
 			getDriver().quit();
 	}
-
+*/
 	@Before
 	public void setUp() {
 		// Configure download preferences for Chrome
@@ -46,7 +46,7 @@ public abstract class BaseLoginTest extends TestBenchTestCase {
 
 		// Set Chrome options
 		ChromeOptions options = new ChromeOptions();
-		options.addArguments("--headless", "--disable-gpu");
+//		options.addArguments("--headless", "--disable-gpu");
 		options.setExperimentalOption("prefs", prefs);
 		WebDriverManager.chromedriver().setup();
 //		WebDriver driver = new ChromeDriver();
