@@ -41,6 +41,7 @@ public class AddFamilyAcceptIT extends BaseLoginTest{
         VaadinSelectView getSelectButton = $(VaadinSelectView.class).first();
         getSelectButton.getSelectItemAccept().selectByText("Search Family");
         SearchComponentView getFamily = $(SearchComponentView.class).first();
+        waitUntil(driver -> getFamily.isDisplayed(), 60);
         getFamily.searchBySSN().sendKeys("511377915");
         getFamily.searchButton().click();
         getFamily.family().getCell("Palmer").click();
@@ -78,6 +79,7 @@ public class AddFamilyAcceptIT extends BaseLoginTest{
         VaadinSelectView getSelectButton = $(VaadinSelectView.class).first();
         getSelectButton.getSelectItemAccept().selectByText("Search Policy");
         SearchComponentView getPolicy = $(SearchComponentView.class).first();
+        waitUntil(driver -> getPolicy.isDisplayed(), 60);
         getPolicy.searchByPolicy().sendKeys("08D6804342");
         getPolicy.searchButton().click();
         getPolicy.family().getCell("08D6804342").click();
@@ -115,6 +117,7 @@ public class AddFamilyAcceptIT extends BaseLoginTest{
         VaadinSelectView getSelectButton = $(VaadinSelectView.class).first();
         getSelectButton.getSelectItemAccept().selectByText("Search Family");
         SearchComponentView getFamily = $(SearchComponentView.class).first();
+        waitUntil(driver -> getFamily.isDisplayed(), 60);
         getFamily.searchBySSN().sendKeys("511377915");
         getFamily.searchButton().click();
         getFamily.family().getCell("Palmer").click();
@@ -150,6 +153,7 @@ public class AddFamilyAcceptIT extends BaseLoginTest{
         VaadinSelectView getSelectButton = $(VaadinSelectView.class).first();
         getSelectButton.getSelectItemAccept().selectByText("Search Family");
         SearchComponentView getFamily = $(SearchComponentView.class).first();
+        waitUntil(driver -> getFamily.isDisplayed(), 60);
         getFamily.searchBySSN().sendKeys("511377915");
         getFamily.searchButton().click();
         getFamily.family().getCell("Palmer").click();
@@ -193,6 +197,7 @@ public class AddFamilyAcceptIT extends BaseLoginTest{
         VaadinSelectView getSelectButton = $(VaadinSelectView.class).first();
         getSelectButton.getSelectItemAccept().selectByText("Search Family");
         SearchComponentView getFamily = $(SearchComponentView.class).first();
+        waitUntil(driver -> getFamily.isDisplayed(), 60);
         getFamily.searchBySSN().sendKeys("511377915");
         getFamily.searchButton().click();
         getFamily.family().getCell("Palmer").click();
@@ -224,6 +229,7 @@ public class AddFamilyAcceptIT extends BaseLoginTest{
         VaadinSelectView getSelectButton = $(VaadinSelectView.class).first();
         getSelectButton.getSelectItemAccept().selectByText("Search Policy");
         SearchComponentView getPolicy = $(SearchComponentView.class).first();
+        waitUntil(driver -> getPolicy.isDisplayed(), 60);
         getPolicy.searchByPolicy().sendKeys("10000038309");
         getPolicy.searchButton().click();
         getPolicy.family().getCell("10000038309").click();
@@ -279,6 +285,7 @@ public class AddFamilyAcceptIT extends BaseLoginTest{
         VaadinSelectView getSelectButton = $(VaadinSelectView.class).first();
         getSelectButton.getSelectItemAccept().selectByText("Search Policy");
         SearchComponentView getPolicy = $(SearchComponentView.class).first();
+        waitUntil(driver -> getPolicy.isDisplayed(), 60);
         getPolicy.searchByPolicy().sendKeys("10000018191");
         getPolicy.searchButton().click();
         getPolicy.family().getCell("10000018191").click();
@@ -330,6 +337,7 @@ public class AddFamilyAcceptIT extends BaseLoginTest{
         VaadinSelectView getSelectButton = $(VaadinSelectView.class).first();
         getSelectButton.getSelectItemAccept().selectByText("Search Policy");;
         SearchComponentView getPolicy = $(SearchComponentView.class).first();
+        waitUntil(driver -> getPolicy.isDisplayed(), 60);
         getPolicy.searchByPolicy().sendKeys("08D1463686");
         getPolicy.searchButton().click();
         getPolicy.family().getCell("08D1463686").click();
