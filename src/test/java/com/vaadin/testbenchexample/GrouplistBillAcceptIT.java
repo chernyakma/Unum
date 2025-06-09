@@ -26,8 +26,8 @@ public class GrouplistBillAcceptIT extends BaseLoginTest {
         ScenarioView addSuspenseButton = $( ScenarioView.class ).first();
         addSuspenseButton.addSuspenceButton().click();
         EntryDialogContent suspenseSource = $( EntryDialogContent.class ).first();
-        suspenseSource.suspenseAmountAccept().setValue( "70.00" );
-        Assertions.assertEquals( "70.00",suspenseSource.suspenseAmountAccept().getValue() );
+        suspenseSource.suspenseAmountAccept().setValue( "104.00" );
+        Assertions.assertEquals( "104.00",suspenseSource.suspenseAmountAccept().getValue() );
         suspenseSource.suspenseSourceAccept().selectByText( "Check" );
         Assertions.assertEquals( "Check",suspenseSource.suspenseSourceAccept().getSelectedText() );
         suspenseSource.depositAccountAccept().selectByText( "General Premium" );
@@ -47,8 +47,8 @@ public class GrouplistBillAcceptIT extends BaseLoginTest {
         transferSuspence.search().doubleClick();
         transferSuspence.family().getCell( "09010" ).click();
         transferSuspence.toAccountAccept().selectByText( "List Bill" );
-        transferSuspence.transferAmountAccept().setValue( "70.00" );
-        Assertions.assertEquals( "70.00",transferSuspence.transferAmountAccept().getValue() );
+        transferSuspence.transferAmountAccept().setValue( "104.00" );
+        Assertions.assertEquals( "104.00",transferSuspence.transferAmountAccept().getValue() );
         transferSuspence.transferEffectveDate().setDate( LocalDate.now() );
 //		transferSuspence.note().sendKeys( "transfer" );
         transferSuspence.okButton().click();
