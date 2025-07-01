@@ -55,6 +55,8 @@ public class PolicyBillIT extends BaseLoginTest {
         TransactionPopUpPageView selectTransaction = $(TransactionPopUpPageView.class).first();
         selectTransaction.transactionType().selectByText("Premium");
         EntryDialogContent premium = $(EntryDialogContent.class).first();
+
+        waitUntil(driver -> premium.isDisplayed(), 60);
         premium.premiumAmount().sendKeys(Keys.chord(Keys.CONTROL, "a"), "65");
         premium.billingMonths().sendKeys(Keys.chord(Keys.CONTROL, "a"), "3");
         premium.okButton().click();
