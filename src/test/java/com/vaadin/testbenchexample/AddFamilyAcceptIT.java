@@ -40,8 +40,9 @@ public class AddFamilyAcceptIT extends BaseLoginTest{
 
         VaadinSelectView getSelectButton = $(VaadinSelectView.class).first();
         getSelectButton.getSelectItemAccept().selectByText("Search Family");
+        waitUntil(driver -> $(SearchComponentView.class).exists(), 80);
         SearchComponentView getFamily = $(SearchComponentView.class).first();
-        waitUntil(driver -> getFamily.isDisplayed(), 60);
+        waitUntil(driver -> getFamily.isDisplayed(), 20);
         getFamily.searchBySSN().sendKeys("511377915");
         getFamily.searchButton().click();
         getFamily.family().getCell("Palmer").click();
@@ -78,8 +79,9 @@ public class AddFamilyAcceptIT extends BaseLoginTest{
     public void addFamilyMemberFromPolicy() {
         VaadinSelectView getSelectButton = $(VaadinSelectView.class).first();
         getSelectButton.getSelectItemAccept().selectByText("Search Policy");
+        waitUntil(driver -> $(SearchComponentView.class).exists(), 80);
         SearchComponentView getPolicy = $(SearchComponentView.class).first();
-        waitUntil(driver -> getPolicy.isDisplayed(), 60);
+        waitUntil(driver -> getPolicy.isDisplayed(), 20);
         getPolicy.searchByPolicy().sendKeys("08D6804342");
         getPolicy.searchButton().click();
         getPolicy.family().getCell("08D6804342").click();
@@ -116,8 +118,9 @@ public class AddFamilyAcceptIT extends BaseLoginTest{
 
         VaadinSelectView getSelectButton = $(VaadinSelectView.class).first();
         getSelectButton.getSelectItemAccept().selectByText("Search Family");
+        waitUntil(driver -> $(SearchComponentView.class).exists(), 80);
         SearchComponentView getFamily = $(SearchComponentView.class).first();
-        waitUntil(driver -> getFamily.isDisplayed(), 60);
+        waitUntil(driver -> getFamily.isDisplayed(), 20);
         getFamily.searchBySSN().sendKeys("511377915");
         getFamily.searchButton().click();
         getFamily.family().getCell("Palmer").click();
@@ -152,8 +155,9 @@ public class AddFamilyAcceptIT extends BaseLoginTest{
     public void familyAddress() throws InterruptedException {
         VaadinSelectView getSelectButton = $(VaadinSelectView.class).first();
         getSelectButton.getSelectItemAccept().selectByText("Search Family");
+        waitUntil(driver -> $(SearchComponentView.class).exists(), 80);
         SearchComponentView getFamily = $(SearchComponentView.class).first();
-        waitUntil(driver -> getFamily.isDisplayed(), 60);
+        waitUntil(driver -> getFamily.isDisplayed(), 20);
         getFamily.searchBySSN().sendKeys("511377915");
         getFamily.searchButton().click();
         getFamily.family().getCell("Palmer").click();
@@ -196,8 +200,9 @@ public class AddFamilyAcceptIT extends BaseLoginTest{
 
         VaadinSelectView getSelectButton = $(VaadinSelectView.class).first();
         getSelectButton.getSelectItemAccept().selectByText("Search Family");
+        waitUntil(driver -> $(SearchComponentView.class).exists(), 80);
         SearchComponentView getFamily = $(SearchComponentView.class).first();
-        waitUntil(driver -> getFamily.isDisplayed(), 60);
+        waitUntil(driver -> getFamily.isDisplayed(), 20);
         getFamily.searchBySSN().sendKeys("511377915");
         getFamily.searchButton().click();
         getFamily.family().getCell("Palmer").click();
@@ -228,8 +233,9 @@ public class AddFamilyAcceptIT extends BaseLoginTest{
     public void addBeneficiary() throws InterruptedException {
         VaadinSelectView getSelectButton = $(VaadinSelectView.class).first();
         getSelectButton.getSelectItemAccept().selectByText("Search Policy");
+        waitUntil(driver -> $(SearchComponentView.class).exists(), 80);
         SearchComponentView getPolicy = $(SearchComponentView.class).first();
-        waitUntil(driver -> getPolicy.isDisplayed(), 60);
+        waitUntil(driver -> getPolicy.isDisplayed(), 20);
         getPolicy.searchByPolicy().sendKeys("10000038309");
         getPolicy.searchButton().click();
         getPolicy.family().getCell("10000038309").click();
@@ -284,8 +290,9 @@ public class AddFamilyAcceptIT extends BaseLoginTest{
     public void addNewOwner() throws InterruptedException {
         VaadinSelectView getSelectButton = $(VaadinSelectView.class).first();
         getSelectButton.getSelectItemAccept().selectByText("Search Policy");
+        waitUntil(driver -> $(SearchComponentView.class).exists(), 80);
         SearchComponentView getPolicy = $(SearchComponentView.class).first();
-        waitUntil(driver -> getPolicy.isDisplayed(), 60);
+        waitUntil(driver -> getPolicy.isDisplayed(), 20);
         getPolicy.searchByPolicy().sendKeys("10000018191");
         getPolicy.searchButton().click();
         getPolicy.family().getCell("10000018191").click();
@@ -335,9 +342,10 @@ public class AddFamilyAcceptIT extends BaseLoginTest{
     public void addOtherRoles() throws InterruptedException {
 
         VaadinSelectView getSelectButton = $(VaadinSelectView.class).first();
-        getSelectButton.getSelectItemAccept().selectByText("Search Policy");;
+        getSelectButton.getSelectItemAccept().selectByText("Search Policy");
+        waitUntil(driver -> $(SearchComponentView.class).exists(), 80);
         SearchComponentView getPolicy = $(SearchComponentView.class).first();
-        waitUntil(driver -> getPolicy.isDisplayed(), 60);
+        waitUntil(driver -> getPolicy.isDisplayed(), 20);
         getPolicy.searchByPolicy().sendKeys("08D1463686");
         getPolicy.searchButton().click();
         getPolicy.family().getCell("08D1463686").click();

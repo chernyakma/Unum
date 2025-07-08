@@ -42,6 +42,7 @@ public class PolicyBillIT extends BaseLoginTest {
     public void payDirectBill() {
         VaadinSelectView getSelectButton = $(VaadinSelectView.class).first();
         getSelectButton.getSelectItemAccept().selectByText("Search Policy");
+        waitUntil(driver -> $(SearchComponentView.class).exists(), 80);
         SearchComponentView getPolicy = $(SearchComponentView.class).first();
         getPolicy.searchByPolicy().sendKeys("08D5928535");
         getPolicy.searchButton().click();
@@ -92,7 +93,7 @@ public class PolicyBillIT extends BaseLoginTest {
 
         VaadinSelectView getSelectButton = $(VaadinSelectView.class).first();
         getSelectButton.getSelectItemAccept().selectByText("Search Policy");
-
+        waitUntil(driver -> $(SearchComponentView.class).exists(), 80);
         SearchComponentView getPolicy = $(SearchComponentView.class).first();
         getPolicy.searchByPolicy().sendKeys("08D5892165");
         getPolicy.searchButton().click();

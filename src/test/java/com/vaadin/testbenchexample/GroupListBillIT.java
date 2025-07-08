@@ -11,7 +11,7 @@ public class GroupListBillIT extends BaseLoginTest {
 	@Test
 	public void suspense() throws InterruptedException {
 		VaadinSelectView getSelectButton = $( VaadinSelectView.class ).first();
-		getSelectButton.getSelectItem().selectByText("Search Group");;
+		getSelectButton.getSelectItem().selectByText("Search Group");
 		SearchComponentView getGroup = $( SearchComponentView.class ).first();
 		getGroup.searchByGroup().sendKeys( "34090" );
 		getGroup.searchButton().click();
