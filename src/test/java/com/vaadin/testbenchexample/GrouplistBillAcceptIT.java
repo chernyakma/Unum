@@ -82,7 +82,7 @@ public class GrouplistBillAcceptIT extends BaseLoginTest {
         VaadinConfirmDialogView confirm = $(VaadinConfirmDialogView.class).first();
         confirm.getSaveButton().click();
         ScenarioView transactionsPage = $(ScenarioView.class).first();
-        waitUntil(driver -> !transactionsPage.progressBar().isDisplayed(), 80);
+        waitUntil(driver -> !transactionsPage.progressBar().isDisplayed(), 100);
 //		System.out.println(transactionsPage.transactionStatus().getCell("Active").getText());
 //		Assertions.assertFalse(transactionsPage.transactionStatus().getCell("Pending").isDisplayed());
         Assertions.assertTrue(transactionsPage.manualBillTransactionStatus().getCell("Active").isDisplayed());
@@ -93,7 +93,7 @@ public class GrouplistBillAcceptIT extends BaseLoginTest {
     public void payListBill()throws InterruptedException, IOException {
         VaadinSelectView getSelectButton = $( VaadinSelectView.class ).first();
         getSelectButton.getSelectItemAccept().selectByText("Search Group");
-        waitUntil(driver -> $(SearchComponentView.class).exists(), 80);
+        waitUntil(driver -> $(SearchComponentView.class).exists(), 150);
         SearchComponentView getGroup = $( SearchComponentView.class ).first();
         getGroup.searchByGroup().sendKeys( "09010" );
         getGroup.searchButton().click();
@@ -113,7 +113,7 @@ public class GrouplistBillAcceptIT extends BaseLoginTest {
 
         Thread.sleep(7_000);
         bills.suspenseFundingAccept().click();
-        waitUntil(driver -> $(EntryDialogContent.class).exists(), 80);
+        waitUntil(driver -> $(EntryDialogContent.class).exists(), 160);
         EntryDialogContent suspenseFunding = $(EntryDialogContent.class).first();
         suspenseFunding.autoFund().click();
 

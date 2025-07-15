@@ -13,7 +13,7 @@ import java.util.Locale;
 public class PolicyBillIT extends BaseLoginTest {
     protected LocalDate initialPaidToDate;
     protected final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM d, yyyy", Locale.ENGLISH);
-/*
+
     @Test
     public void suspense() throws InterruptedException {
         VaadinSelectView getSelectButton = $(VaadinSelectView.class).first();
@@ -37,7 +37,7 @@ public class PolicyBillIT extends BaseLoginTest {
         //       ScenarioView checkSuspence = $(ScenarioView.class).first();
     }
 
-*/
+
     @Test
     public void payDirectBill() {
         VaadinSelectView getSelectButton = $(VaadinSelectView.class).first();
