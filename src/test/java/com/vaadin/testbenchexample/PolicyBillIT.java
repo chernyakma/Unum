@@ -55,9 +55,9 @@ public class PolicyBillIT extends BaseLoginTest {
         premiumTransaction.addTransactionButton().click();
         TransactionPopUpPageView selectTransaction = $(TransactionPopUpPageView.class).first();
         selectTransaction.transactionType().selectByText("Premium");
+        waitUntil(driver -> $(EntryDialogContent.class).exists(), 160);
         EntryDialogContent premium = $(EntryDialogContent.class).first();
-
-        waitUntil(driver -> premium.isDisplayed(), 60);
+//        waitUntil(driver -> premium.isDisplayed(), 60);
         premium.premiumAmount().sendKeys(Keys.chord(Keys.CONTROL, "a"), "65");
         premium.billingMonths().sendKeys(Keys.chord(Keys.CONTROL, "a"), "3");
         premium.okButton().click();
@@ -95,9 +95,9 @@ public class PolicyBillIT extends BaseLoginTest {
         getSelectButton.getSelectItemAccept().selectByText("Search Policy");
         waitUntil(driver -> $(SearchComponentView.class).exists(), 80);
         SearchComponentView getPolicy = $(SearchComponentView.class).first();
-        getPolicy.searchByPolicy().sendKeys("08D5892165");
+        getPolicy.searchByPolicy().sendKeys("08D4322728");
         getPolicy.searchButton().click();
-        getPolicy.family().getCell("08D5892165").click();
+        getPolicy.family().getCell("08D4322728").click();
 
         NaviMenuView transaction = $(NaviMenuView.class).first();
         transaction.policyTransactionsEFT().click();

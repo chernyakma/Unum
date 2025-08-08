@@ -109,9 +109,9 @@ public class GrouplistBillAcceptIT extends BaseLoginTest {
         bills.bill().getCell("Unpaid").click();
         bills.receivedAsBilledAccept().click();
 
-        bills.reconcileAccept().click();
+  //      bills.reconcileAccept().click();
 
-        Thread.sleep(7_000);
+  //      Thread.sleep(7_000);
         bills.suspenseFundingAccept().click();
         waitUntil(driver -> $(EntryDialogContent.class).exists(), 160);
         EntryDialogContent suspenseFunding = $(EntryDialogContent.class).first();
@@ -119,8 +119,10 @@ public class GrouplistBillAcceptIT extends BaseLoginTest {
 
         suspenseFunding.okFundButton().click();
         ScenarioView payBill = $(ScenarioView.class).first();
+        payBill.reconcileAccept().click();
+        Thread.sleep(7_000);
         payBill.processBillAccept().click();
-  //      EntryDialogContent confirm =$ (EntryDialogContent.class).first();
+        waitUntil(driver -> $(VaadinConfirmDialogView.class).exists(), 60);
         VaadinConfirmDialogView confirm = $(VaadinConfirmDialogView.class).first();
         confirm.getSaveButton().click();
         ScenarioView process = $(ScenarioView.class).first();
