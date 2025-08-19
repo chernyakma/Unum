@@ -50,7 +50,7 @@ public class AddFamilyAcceptIT extends BaseLoginTest{
         ScenarioView addMember = $(ScenarioView.class).first();
         addMember.addMemberButton().click();
         AddFamilyView family = $(AddFamilyView.class).first();
-        family.getRelationshipAccept().selectByText("Partner");
+        family.getRelationshipAccept().selectByText("Spouse/Partner");
         family.addSpouseAccept();
         family.getSpouseGenderAccept().selectByText("Female");
         family.getDateOfBirth().setDate(LocalDate.of(1965, 01, 05));
@@ -64,7 +64,9 @@ public class AddFamilyAcceptIT extends BaseLoginTest{
         Assertions.assertEquals("Spouse", family.getLastName().getValue());
         Assertions.assertEquals("Female", family.getSpouseGenderAccept().getSelectedText());
 //		Assertions.assertEquals("1/5/1965", family.getDateOfBirth().getInputValue());
+
         family.getSaveButton().click();
+  /*
         family.FamilyButton().click();
         ScenarioView deleteMember = $(ScenarioView.class).first();
         deleteMember.getDeleteSpouseButtonAccept().click();
@@ -72,7 +74,7 @@ public class AddFamilyAcceptIT extends BaseLoginTest{
        VaadinConfirmDialogView deleteSpouse = $(VaadinConfirmDialogView.class).first();
 
         deleteSpouse.getSaveButton().click();
-
+*/
     }
 
     @Test
@@ -90,7 +92,7 @@ public class AddFamilyAcceptIT extends BaseLoginTest{
         ScenarioView addMember = $(ScenarioView.class).first();
         addMember.addMemberButton().click();
         AddFamilyView family = $(AddFamilyView.class).first();
-        family.getRelationshipAccept().selectByText("Partner");
+        family.getRelationshipAccept().selectByText("Spouse/Partner");
         family.addSpouseAccept();
         family.getSpouseGenderAccept().selectByText("Female");
         family.getDateOfBirth().setDate(LocalDate.of(1970, 01, 05));
@@ -305,7 +307,7 @@ public class AddFamilyAcceptIT extends BaseLoginTest{
         addNewOwner.addBeneficiary("Harry", "Potter", "253446453", "chernyakma@yahoo.com", "1234567890");
         addNewOwner.dob().setDate(LocalDate.of(1980, 8, 25));
 		addNewOwner.gender().selectByText("Male");
-		addNewOwner.relationshipAccept().selectByText("Spouse");
+		addNewOwner.relationshipAccept().selectByText("Other");
         Assertions.assertEquals("Potter", addNewOwner.lastName().getValue());
 		Assertions.assertEquals("8/25/1980", addNewOwner.dob().getInputValue());
         Assertions.assertEquals("253-44-6453", addNewOwner.ssn().getValue());

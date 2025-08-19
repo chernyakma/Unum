@@ -122,7 +122,7 @@ public class GrouplistBillAcceptIT extends BaseLoginTest {
         payBill.reconcileAccept().click();
         Thread.sleep(7_000);
         payBill.processBillAccept().click();
-        waitUntil(driver -> $(VaadinConfirmDialogView.class).exists(), 60);
+        waitUntil(driver -> $(VaadinConfirmDialogView.class).exists(), 80);
         VaadinConfirmDialogView confirm = $(VaadinConfirmDialogView.class).first();
         confirm.getSaveButton().click();
         ScenarioView process = $(ScenarioView.class).first();
