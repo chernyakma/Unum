@@ -66,7 +66,7 @@ public class AddFamilyAcceptIT extends BaseLoginTest{
 //		Assertions.assertEquals("1/5/1965", family.getDateOfBirth().getInputValue());
 
         family.getSaveButton().click();
-  /*
+
         family.FamilyButton().click();
         ScenarioView deleteMember = $(ScenarioView.class).first();
         deleteMember.getDeleteSpouseButtonAccept().click();
@@ -74,7 +74,7 @@ public class AddFamilyAcceptIT extends BaseLoginTest{
        VaadinConfirmDialogView deleteSpouse = $(VaadinConfirmDialogView.class).first();
 
         deleteSpouse.getSaveButton().click();
-*/
+
     }
 
     @Test

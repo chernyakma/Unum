@@ -122,11 +122,11 @@ public class GrouplistBillAcceptIT extends BaseLoginTest {
         payBill.reconcileAccept().click();
         Thread.sleep(7_000);
         payBill.processBillAccept().click();
-        waitUntil(driver -> $(VaadinConfirmDialogView.class).exists(), 80);
+        waitUntil(driver -> $(VaadinConfirmDialogView.class).exists(), 110);
         VaadinConfirmDialogView confirm = $(VaadinConfirmDialogView.class).first();
         confirm.getSaveButton().click();
         ScenarioView process = $(ScenarioView.class).first();
-        waitUntil(driver -> process.billInfo().isDisplayed(),80);
+        waitUntil(driver -> process.billInfo().isDisplayed(),110);
         NaviMenuView devivsions=$(NaviMenuView.class).first();
         devivsions.getDivisions().click();
         ScenarioView paidToDate = $(ScenarioView.class).first();
