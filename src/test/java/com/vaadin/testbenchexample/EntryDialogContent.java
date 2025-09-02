@@ -209,6 +209,10 @@ public class EntryDialogContent extends TestBenchElement {
 
 		return $(TestBenchElement.class).id( "PremiumSection" ).$(TextFieldElement.class).id( "AmountRequested" );
 	}
+	protected TextAreaElement transactionNotes (){
+
+		return $(TestBenchElement.class).id("pageContent").$(TestBenchElement.class).id( "transactionNotes" ).$(TextAreaElement.class).first();
+	}
 	protected TextFieldElement billingMonths (){
 
 		return $(TestBenchElement.class).id( "PremiumSection" ).$(TextFieldElement.class).id( "BillingMonths" );

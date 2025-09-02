@@ -44,13 +44,13 @@ public class PolicyBillIT extends BaseLoginTest {
         getSelectButton.getSelectItemAccept().selectByText("Search Policy");
         waitUntil(driver -> $(SearchComponentView.class).exists(), 80);
         SearchComponentView getPolicy = $(SearchComponentView.class).first();
-        getPolicy.searchByPolicy().sendKeys("08D5928535");
+        getPolicy.searchByPolicy().sendKeys("08D8102368");
         getPolicy.searchButton().click();
-        getPolicy.family().getCell("08D5928535").click();
+        getPolicy.family().getCell("08D8102368").click();
         NaviMenuView transaction = $(NaviMenuView.class).first();
-        transaction.policyTransactions().click();
+        transaction.policyTransactionsEFT().click();
         ScenarioView premiumTransaction = $(ScenarioView.class).first();
-        String originalDateText = premiumTransaction.policyPaidToDate().getText();
+        String originalDateText = premiumTransaction.policyPaidToDate2().getText();
         initialPaidToDate = LocalDate.parse(originalDateText, formatter);
         premiumTransaction.addTransactionButton().click();
         TransactionPopUpPageView selectTransaction = $(TransactionPopUpPageView.class).first();
@@ -58,8 +58,11 @@ public class PolicyBillIT extends BaseLoginTest {
         waitUntil(driver -> $(EntryDialogContent.class).exists(), 160);
         EntryDialogContent premium = $(EntryDialogContent.class).first();
 //        waitUntil(driver -> premium.isDisplayed(), 60);
-        premium.premiumAmount().sendKeys(Keys.chord(Keys.CONTROL, "a"), "65");
-        premium.billingMonths().sendKeys(Keys.chord(Keys.CONTROL, "a"), "3");
+        premium.premiumAmount().sendKeys(Keys.chord(Keys.CONTROL, "a"), "52");
+        TransactionPopUpPageView notes=$ (TransactionPopUpPageView.class).first();
+        notes.note().sendKeys("123");
+ //       premium.transactionNotes().sendKeys("123");
+ //       premium.billingMonths().sendKeys(Keys.chord(Keys.CONTROL, "a"), "3");
         premium.okButton().click();
         ScenarioView processPremiumTransaction = $(ScenarioView.class).first();
         processPremiumTransaction.processInitialPremiumTransactionButton().click();
@@ -69,7 +72,7 @@ public class PolicyBillIT extends BaseLoginTest {
 
         waitUntil(driver -> !transactionsPage.progressBar().isDisplayed(), 80);
         //       ScenarioView paidToDate = $(ScenarioView.class).first();
-        String updatedText = transactionsPage.policyPaidToDate().getText();
+        String updatedText = transactionsPage.policyPaidToDate2().getText();
         LocalDate updatedDate = LocalDate.parse(updatedText, formatter);
 
         Assertions.assertEquals(initialPaidToDate.plusMonths(3), updatedDate);
@@ -95,9 +98,9 @@ public class PolicyBillIT extends BaseLoginTest {
         getSelectButton.getSelectItemAccept().selectByText("Search Policy");
         waitUntil(driver -> $(SearchComponentView.class).exists(), 80);
         SearchComponentView getPolicy = $(SearchComponentView.class).first();
-        getPolicy.searchByPolicy().sendKeys("08D4322728");
+        getPolicy.searchByPolicy().sendKeys("08D6160722");
         getPolicy.searchButton().click();
-        getPolicy.family().getCell("08D4322728").click();
+        getPolicy.family().getCell("08D6160722").click();
 
         NaviMenuView transaction = $(NaviMenuView.class).first();
         transaction.policyTransactionsEFT().click();
@@ -108,7 +111,7 @@ public class PolicyBillIT extends BaseLoginTest {
         String originalDateText = payPremium.policyPaidToDate().getText();
         initialPaidToDate = parseFlexibleDate(originalDateText);
         LocalDate originalDate = parseFlexibleDate(originalDateText);
-        LocalDate newDate = originalDate.plusDays(1);
+        LocalDate newDate = originalDate.plusDays(17);
         if (newDate.getDayOfWeek() == DayOfWeek.SATURDAY) {
             newDate = newDate.plusDays(2);
         } else if (newDate.getDayOfWeek() == DayOfWeek.SUNDAY) {
