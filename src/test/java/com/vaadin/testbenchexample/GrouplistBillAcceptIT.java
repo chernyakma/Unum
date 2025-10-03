@@ -50,7 +50,7 @@ public class GrouplistBillAcceptIT extends BaseLoginTest {
         transferSuspence.toAccountAccept().selectByText( "List Bill" );
         transferSuspence.transferAmountAccept().setValue( "104.00" );
         Assertions.assertEquals( "104.00",transferSuspence.transferAmountAccept().getValue() );
-        transferSuspence.transferEffectveDate().setDate( LocalDate.now() );
+ //       transferSuspence.transferEffectveDate().setDate( LocalDate.now() );
 //		transferSuspence.note().sendKeys( "transfer" );
         transferSuspence.okButton().click();
 //		ScenarioView suspenceAmount=$(ScenarioView.class).first();
