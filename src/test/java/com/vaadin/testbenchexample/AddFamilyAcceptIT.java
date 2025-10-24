@@ -408,6 +408,11 @@ public class AddFamilyAcceptIT extends BaseLoginTest{
         deleteRole.getDeleteFamilyOtherAccept().click();
         VaadinConfirmDialogView save = $(VaadinConfirmDialogView.class).first();
         save.getSaveButton().click();
+        NaviMenuView deleteAddress = $(NaviMenuView.class).first();
+        deleteAddress.getAddressesAccept().click();
+        ScenarioView addresses = $(ScenarioView.class).first();
+        addresses.getDeleteAddressButton().click();
+        addresses.getSaveButton().click();
     }
 
 
