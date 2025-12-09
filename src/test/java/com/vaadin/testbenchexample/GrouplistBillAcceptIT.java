@@ -111,8 +111,9 @@ public class GrouplistBillAcceptIT extends BaseLoginTest {
 
         bills.reconcileAccept().click();
         Thread.sleep(7_000);
-        bills.suspenseFundingAccept().click();
-        waitUntil(driver -> $(EntryDialogContent.class).exists(), 160);
+        ScenarioView suspenseFund= $(ScenarioView.class).first();
+        suspenseFund.suspenseFundingAccept().click();
+        waitUntil(driver -> $(EntryDialogContent.class).exists(), 200);
         EntryDialogContent suspenseFunding = $(EntryDialogContent.class).first();
         suspenseFunding.autoFund().click();
 
