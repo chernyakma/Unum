@@ -264,10 +264,11 @@
                 <version>3.0.0-M7</version>
                 <configuration>
                     <includes>
-                        <include>**/GrouplistBillAcceptIT.java</include>
+                        <include>**/GrouplistBillIT.java</include>
                         <include>**/BaseLoginTest.java</include>
-                        <include>**/AddFamilyAcceptIT.java</include>
+                        <include>**/AddFamilyIT.java</include>
                         <include>**/PolicyBillIT.java</include>
+                        <include>**/ClaimsIT.java</include>
                     </includes>
                     <reportsDirectory>${project.build.directory}/surefire-reports</reportsDirectory>
                     <redirectTestOutputToFile>true</redirectTestOutputToFile>

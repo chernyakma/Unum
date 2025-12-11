@@ -68,15 +68,11 @@ import kotlin.reflect.jvm.internal.impl.descriptors.Visibilities;
 	protected TextFieldElement getTaxID() {
 		return $( TestBenchElement.class ).id( "scenarioComponent" ).$( TestBenchElement.class ).id( "S0" ).$( FormLayoutElement.class ).first().$( TextFieldElement.class ).id( "TaxID" );
 	}
-	protected ListBoxElement getGender() {
-		return $( TestBenchElement.class ).id( "scenarioComponent" ).$( TestBenchElement.class ).id( "S0" ).$( FormLayoutElement.class ).first().$(SelectElement.class).first().$(ListBoxElement.class).first();
-	}
+
 	protected SelectElement getGenderAccept() {
 		return $( TestBenchElement.class ).id( "scenarioComponent" ).$( TestBenchElement.class ).id( "S0" ).$( FormLayoutElement.class ).first().$(SelectElement.class).id("Gender");
 	}
-	protected ListBoxElement getSpouseGender() {
-		return $( TestBenchElement.class ).id( "scenarioComponent" ).$( TestBenchElement.class ).id( "S0" ).$( FormLayoutElement.class ).first().$(SelectElement.class).id("Gender").$(ListBoxElement.class).first();
-	}
+
 	protected SelectElement getSpouseGenderAccept() {
 		return $( TestBenchElement.class ).id( "scenarioComponent" ).$( TestBenchElement.class ).id( "S0" ).$( FormLayoutElement.class ).first().$(SelectElement.class).id("Gender");
 	}
@@ -93,29 +89,21 @@ import kotlin.reflect.jvm.internal.impl.descriptors.Visibilities;
 	protected RadioButtonElement getTobaccoUse () {
 		return $( TestBenchElement.class ).id( "scenarioComponent" ).$( TestBenchElement.class ).id( "S0" ).$( FormLayoutElement.class ).first().$( RadioButtonGroupElement.class ).first().$(RadioButtonElement.class).last();
 	}
-	protected ListBoxElement getMarriageStatus() {
-		return $( TestBenchElement.class ).id( "scenarioComponent" ).$( TestBenchElement.class ).id( "S0" ).$( FormLayoutElement.class ).first().$( SelectElement.class ).id( "MarriageStatus" ).$(ListBoxElement.class).first();
-	}
+
 	protected SelectElement getMarriageStatusAccept() {
 		return $( TestBenchElement.class ).id( "scenarioComponent" ).$( TestBenchElement.class ).id( "S0" ).$( FormLayoutElement.class ).first().$( SelectElement.class ).id( "MarriageStatus" );
 	}
-	protected ListBoxElement getHealthStatus() {
-		return $( TestBenchElement.class ).id( "scenarioComponent" ).$( TestBenchElement.class ).id( "S0" ).$( FormLayoutElement.class ).first().$( SelectElement.class ).id( "PerceptionOfHealth" ).$(ListBoxElement.class).first();
-	}
+
 	protected SelectElement getHealthStatusAccept() {
 		return $( TestBenchElement.class ).id( "scenarioComponent" ).$( TestBenchElement.class ).id( "S0" ).$( FormLayoutElement.class ).first().$( SelectElement.class ).id( "PerceptionOfHealth" );
 	}
-	protected ListBoxElement getRelationship() {
-		return $( TestBenchElement.class ).id( "scenarioComponent" ).$( TestBenchElement.class ).id( "S0" ).$( FormLayoutElement.class ).first().$( SelectElement.class ).id( "RelationshipType" ).$(ListBoxElement.class).first();
-	}
+
 	protected SelectElement getRelationshipAccept() {
 		return $( TestBenchElement.class ).id( "scenarioComponent" ).$( TestBenchElement.class ).id( "S0" ).$( FormLayoutElement.class ).first().$( SelectElement.class ).id( "RelationshipType" );
 	}
 
 	//Employee
-	protected ListBoxElement getFullTimePartTime() {
-		return $( TestBenchElement.class ).id( "scenarioComponent" ).$( TestBenchElement.class ).id( "Employee" ).$( FormLayoutElement.class ).first().$( SelectElement.class ).id( "FullTimePartTime" ).$(ListBoxElement.class).first();
-	}
+
 	protected SelectElement getFullTimePartTimeAccept() {
 		return $( TestBenchElement.class ).id( "scenarioComponent" ).$( TestBenchElement.class ).id( "Employee" ).$( FormLayoutElement.class ).first().$( SelectElement.class ).id( "FullTimePartTime" );
 	}
@@ -138,9 +126,7 @@ import kotlin.reflect.jvm.internal.impl.descriptors.Visibilities;
 	protected TextFieldElement getPhone1Accept() {
 		return $( TestBenchElement.class ).id( "scenarioComponent" ).$( TestBenchElement.class ).id( "Contact" ).$( FormLayoutElement.class ).last().$(TextFieldElement.class).id("Phone1");
 	}
-	protected ListBoxElement getPhoneType1() {
-		return $( TestBenchElement.class ).id( "scenarioComponent" ).$( TestBenchElement.class ).id( "Contact" ).$( FormLayoutElement.class ).last().$( SelectElement.class ).id( "PhoneType1" ).$(ListBoxElement.class).first();
-	}
+
 	protected SelectElement getPhoneType1Accept() {
 		return $( TestBenchElement.class ).id( "scenarioComponent" ).$( TestBenchElement.class ).id( "Contact" ).$( FormLayoutElement.class ).last().$(SelectElement.class).id( "PhoneType1" );
 	}
@@ -154,9 +140,7 @@ import kotlin.reflect.jvm.internal.impl.descriptors.Visibilities;
 	protected TextFieldElement getPhone2Accept() {
 		return $( TestBenchElement.class ).id( "scenarioComponent" ).$( TestBenchElement.class ).id( "Contact" ).$( FormLayoutElement.class ).last().$( TextFieldElement.class ).id( "Phone2" );
 	}
-	protected ListBoxElement getPhoneType2() {
-		return $( TestBenchElement.class ).id( "scenarioComponent" ).$( TestBenchElement.class ).id( "Contact" ).$( FormLayoutElement.class ).last().$( SelectElement.class ).id( "PhoneType2" ).$(ListBoxElement.class).first();
-	}
+
 	protected SelectElement getPhoneType2Accept() {
 		return $( TestBenchElement.class ).id( "scenarioComponent" ).$( TestBenchElement.class ).id( "Contact" ).$( FormLayoutElement.class ).last().$( SelectElement.class ).id( "PhoneType2" );
 	}

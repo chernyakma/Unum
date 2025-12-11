@@ -23,9 +23,7 @@ public class AddressView extends TestBenchElement
 
 
 
-	protected ListBoxElement getCountry() {
-	    return $( TestBenchElement.class ).id("S0").$( SelectElement.class ).id( "Country" ).$(ListBoxElement.class).first();
-	}
+
 	protected SelectElement getCountryAccept() {
 		return $( TestBenchElement.class ).id("S0").$( SelectElement.class ).id( "Country" );
 	}
@@ -38,18 +36,14 @@ public class AddressView extends TestBenchElement
 	protected InputTextElement getCity() {
 		return $( TestBenchElement.class ).id("S1").$( TextFieldElement.class ).id( "City" ).$(InputTextElement.class).first();
 	}
-	protected ListBoxElement getState() {
-		return $( TestBenchElement.class ).id("S1").$( SelectElement.class ).id( "State" ).$(ListBoxElement.class).first();
-	}
+
 	protected SelectElement getStateAccept() {
 		return $( TestBenchElement.class ).id("S1").$( SelectElement.class ).id( "State" );
 	}
 	protected InputTextElement getZip() {
 		return $( TestBenchElement.class ).id("S1").$( TextFieldElement.class ).id( "Zip" ).$(InputTextElement.class).first();
 	}
-	protected ListBoxElement getAddressType() {
-		return $( TestBenchElement.class ).id("S1").$( SelectElement.class ).id( "AddressType" ).$(ListBoxElement.class).first();
-	}
+
 	protected SelectElement getAddressTypeAccept() {
 		return $( TestBenchElement.class ).id("S1").$( SelectElement.class ).id( "AddressType" );
 	}

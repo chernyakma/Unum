@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Assertions;
 
 import java.time.LocalDate;
 
-public class AddFamilyAcceptIT extends BaseLoginTest{
+public class AddFamilyIT extends BaseLoginTest{
 
 
     @Test

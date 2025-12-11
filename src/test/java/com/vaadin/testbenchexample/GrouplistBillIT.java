@@ -9,7 +9,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
-public class GrouplistBillAcceptIT extends BaseLoginTest {
+public class GrouplistBillIT extends BaseLoginTest {
     protected LocalDate initialPaidToDate;
     protected final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM d, yyyy", Locale.ENGLISH);
 

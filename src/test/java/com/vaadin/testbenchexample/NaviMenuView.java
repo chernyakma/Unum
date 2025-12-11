@@ -171,7 +171,28 @@ public class NaviMenuView extends TestBenchElement {
 	protected TestBenchElement policyTransactionsEFT() {
 
 		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 33 );
+			}
+
+//claims
+
+	protected TestBenchElement processClaim() {
+
+		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 22 );
 	}
+	protected TestBenchElement makePayment() {
 
+		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 24 );
+	}
+	protected TestBenchElement policy() {
 
+		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 27 );
+	}
+	protected TestBenchElement claimPolicy() {
+
+		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 36 );
+	}
+	protected TestBenchElement claims() {
+
+		return $( TestBenchElement.class ).id( "navi-menu").$( IconElement.class ).get( 29 );
+	}
 }
