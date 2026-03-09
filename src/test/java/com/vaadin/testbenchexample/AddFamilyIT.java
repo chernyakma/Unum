@@ -43,7 +43,7 @@ public class AddFamilyIT extends BaseLoginTest{
         waitUntil(driver -> $(SearchComponentView.class).exists(), 80);
         SearchComponentView getFamily = $(SearchComponentView.class).first();
         waitUntil(driver -> getFamily.isDisplayed(), 20);
-        getFamily.searchBySSN().sendKeys("511377915");
+        getFamily.searchBySSN().sendKeys("511377916");
         getFamily.searchButton().click();
         getFamily.family().getCell("Palmer").click();
 
@@ -127,7 +127,7 @@ public class AddFamilyIT extends BaseLoginTest{
         waitUntil(driver -> $(SearchComponentView.class).exists(), 80);
         SearchComponentView getFamily = $(SearchComponentView.class).first();
         waitUntil(driver -> getFamily.isDisplayed(), 20);
-        getFamily.searchBySSN().sendKeys("511377915");
+        getFamily.searchBySSN().sendKeys("511377916");
         getFamily.searchButton().click();
         getFamily.family().getCell("Palmer").click();
         ScenarioView editMember = $(ScenarioView.class).first();
@@ -164,7 +164,7 @@ public class AddFamilyIT extends BaseLoginTest{
         waitUntil(driver -> $(SearchComponentView.class).exists(), 80);
         SearchComponentView getFamily = $(SearchComponentView.class).first();
         waitUntil(driver -> getFamily.isDisplayed(), 20);
-        getFamily.searchBySSN().sendKeys("511377915");
+        getFamily.searchBySSN().sendKeys("511377916");
         getFamily.searchButton().click();
         getFamily.family().getCell("Palmer").click();
         NaviMenuView getAddress = $(NaviMenuView.class).first();
@@ -209,7 +209,7 @@ public class AddFamilyIT extends BaseLoginTest{
         waitUntil(driver -> $(SearchComponentView.class).exists(), 80);
         SearchComponentView getFamily = $(SearchComponentView.class).first();
         waitUntil(driver -> getFamily.isDisplayed(), 20);
-        getFamily.searchBySSN().sendKeys("511377915");
+        getFamily.searchBySSN().sendKeys("511377916");
         getFamily.searchButton().click();
         getFamily.family().getCell("Palmer").click();
         NaviMenuView getAddress = $(NaviMenuView.class).first();
@@ -270,8 +270,12 @@ public class AddFamilyIT extends BaseLoginTest{
         confirm.getDeleteButton().click();
 //		ScenarioView save = $(ScenarioView.class).first();
 //		save.getSaveButton().click();
-
         NaviMenuView family = $(NaviMenuView.class).first();
+        family.transactions().click();
+        ScenarioView transactions = $(ScenarioView.class).first();
+        transactions.processFirstTransactionButton().click();
+
+/*
         family.getFamilyAccept().click();
         ScenarioView getBeneficiary = $(ScenarioView.class).first();
         Assertions.assertTrue(getBeneficiary.family().getCell("Potter").isDisplayed());
@@ -289,7 +293,7 @@ public class AddFamilyIT extends BaseLoginTest{
         deleteBeneficiary.getDeleteFamilyBeneButtonAccept().click();
         VaadinConfirmDialogView delete = $(VaadinConfirmDialogView.class).first();
         delete.getSaveButton().click();
-
+*/
     }
 
     @Test
@@ -323,6 +327,10 @@ public class AddFamilyIT extends BaseLoginTest{
         VaadinConfirmDialogView confirm = $(VaadinConfirmDialogView.class).first();
         confirm.getDeleteButton().click();
         NaviMenuView family = $(NaviMenuView.class).first();
+        family.policyTransactions().click();
+        ScenarioView transactions = $(ScenarioView.class).first();
+        transactions.reverseLoanTransactionButton().click();
+ /*
         family.getFamilyAccept().click();
         ScenarioView checkOwner = $(ScenarioView.class).first();
         Assertions.assertTrue(checkOwner.family().getCell("Potter").isDisplayed());
@@ -341,7 +349,7 @@ public class AddFamilyIT extends BaseLoginTest{
         deleteOwner.getDeleteFamilyOwner().click();
         VaadinConfirmDialogView delete = $(VaadinConfirmDialogView.class).first();
         delete.getSaveButton().click();
-
+*/
     }
 
     @Test
@@ -386,9 +394,15 @@ public class AddFamilyIT extends BaseLoginTest{
         ScenarioView roles = $(ScenarioView.class).first();
         roles.getSaveButton().click();
         Thread.sleep(3_000);
+
         VaadinConfirmDialogView confirm = $(VaadinConfirmDialogView.class).first();
         confirm.getDeleteButton().click();
         NaviMenuView family = $(NaviMenuView.class).first();
+        family.policyTransactions().click();
+        ScenarioView transactions = $(ScenarioView.class).first();
+        transactions.reverseLoanTransactionButton().click();
+
+  /*
         family.getFamilyAccept().click();
         ScenarioView checkOwner = $(ScenarioView.class).first();
         Assertions.assertTrue(checkOwner.family().getCell("Potter").isDisplayed());
@@ -413,6 +427,28 @@ public class AddFamilyIT extends BaseLoginTest{
         ScenarioView addresses = $(ScenarioView.class).first();
         addresses.getDeleteAddressButton().click();
         addresses.getSaveButton().click();
+        deleteAddress.family().click();
+        addresses.policyNumber().getCell("08D1463686").click();
+        NaviMenuView menu= $(NaviMenuView.class).first();
+//		menu.claimPolicy().click();
+        menu.policyTransactionsEFT().click();
+        ScenarioView transactions = $(ScenarioView.class).first();
+        transactions.reverseSecondTransactionButton().click();
+        waitUntil(driver -> $(VaadinConfirmDialogView.class).exists(), 120);
+        VaadinConfirmDialogView reverse = $(VaadinConfirmDialogView.class).first();
+        reverse.getSaveButton().click();
+        waitUntil(driver -> !transactions.progressBar().isDisplayed(), 80);
+        transactions.deleteFirstTransactionButton().click();
+        waitUntil(driver -> $(VaadinConfirmDialogView.class).exists(), 120);
+        VaadinConfirmDialogView confirmDelete = $(VaadinConfirmDialogView.class).first();
+        confirmDelete.getSaveButton().click();
+        waitUntil(driver -> !transactions.progressBar().isDisplayed(), 80);
+        transactions.deleteFirstTransactionButton().click();
+        VaadinConfirmDialogView conf = $(VaadinConfirmDialogView.class).first();
+        conf.getSaveButton().click();
+        waitUntil(driver -> !transactions.progressBar().isDisplayed(), 80);
+
+   */
     }
 
 

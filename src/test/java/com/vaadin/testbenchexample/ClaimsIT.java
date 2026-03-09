@@ -17,9 +17,9 @@ public class ClaimsIT extends BaseLoginTest{
         SearchComponentView getPolicy = $(SearchComponentView.class).first();
         waitUntil(driver -> getPolicy.isDisplayed(), 20);
 //        SearchComponentView getPolicy = $(SearchComponentView.class).first();
-        getPolicy.searchByPolicy().sendKeys("08D7117196");
+        getPolicy.searchByPolicy().sendKeys("08D5371370");
         getPolicy.searchButton().click();
-        getPolicy.family().getCell("08D7117196").click();
+        getPolicy.family().getCell("08D5371370").click();
         NaviMenuView menu = $(NaviMenuView.class).first();
         menu.claims().click();
         ScenarioView claims = $(ScenarioView.class).first();
@@ -43,7 +43,7 @@ public class ClaimsIT extends BaseLoginTest{
         NaviMenuView claimPayment = $(NaviMenuView.class).first();
         claimPayment.makePayment().click();
         EntryDialogContent payment = $(EntryDialogContent.class).first();
-        payment.getPayee().selectByText("Michael Golden");
+        payment.getPayee().selectItemByIndex(0);
         payment.okButton().click();
         NaviMenuView policyTransactions=$(NaviMenuView.class).first();
         policyTransactions.claimPolicy().click();
@@ -87,7 +87,7 @@ public class ClaimsIT extends BaseLoginTest{
         decision.getClaimDecision().selectByText("Deny");
         decision.okButton().click();
         EntryDialogContent reason = $(EntryDialogContent.class).first();
-        reason.getDenialClaimReason().selectByText("Other");
+        reason.getDenialClaimReason().selectByText("Marked Up In Error");
         reason.okButton().click();
         ScenarioView claimStatus = $(ScenarioView.class).first();
         Assertions.assertEquals("Denied", claimStatus.claimStatus().getText());
