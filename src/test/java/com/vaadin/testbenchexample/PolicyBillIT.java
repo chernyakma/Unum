@@ -44,13 +44,13 @@ public class PolicyBillIT extends BaseLoginTest {
         getSelectButton.getSelectItemAccept().selectByText("Search Policy");
         waitUntil(driver -> $(SearchComponentView.class).exists(), 80);
         SearchComponentView getPolicy = $(SearchComponentView.class).first();
-        getPolicy.searchByPolicy().sendKeys("08D8102368");
+        getPolicy.searchByPolicy().sendKeys("08D9154352");
         getPolicy.searchButton().click();
-        getPolicy.family().getCell("08D8102368").click();
+        getPolicy.family().getCell("08D9154352").click();
         NaviMenuView transaction = $(NaviMenuView.class).first();
         transaction.policyTransactionsEFT().click();
         ScenarioView premiumTransaction = $(ScenarioView.class).first();
-        String originalDateText = premiumTransaction.policyPaidToDate2().getText();
+        String originalDateText = premiumTransaction.policyPaidToDate().getText();
         initialPaidToDate = LocalDate.parse(originalDateText, formatter);
         premiumTransaction.addTransactionButton().click();
         TransactionPopUpPageView selectTransaction = $(TransactionPopUpPageView.class).first();
@@ -58,7 +58,7 @@ public class PolicyBillIT extends BaseLoginTest {
         waitUntil(driver -> $(EntryDialogContent.class).exists(), 160);
         EntryDialogContent premium = $(EntryDialogContent.class).first();
 //        waitUntil(driver -> premium.isDisplayed(), 60);
-        premium.premiumAmount().sendKeys(Keys.chord(Keys.CONTROL, "a"), "52");
+        premium.premiumAmount().sendKeys(Keys.chord(Keys.CONTROL, "a"), "14.31");
         TransactionPopUpPageView notes=$ (TransactionPopUpPageView.class).first();
         notes.note().sendKeys("123");
  //       premium.transactionNotes().sendKeys("123");
@@ -72,10 +72,10 @@ public class PolicyBillIT extends BaseLoginTest {
 
         waitUntil(driver -> !transactionsPage.progressBar().isDisplayed(), 80);
         //       ScenarioView paidToDate = $(ScenarioView.class).first();
-        String updatedText = transactionsPage.policyPaidToDate2().getText();
+        String updatedText = transactionsPage.policyPaidToDate().getText();
         LocalDate updatedDate = LocalDate.parse(updatedText, formatter);
 
-        Assertions.assertEquals(initialPaidToDate.plusMonths(3), updatedDate);
+        Assertions.assertEquals(initialPaidToDate.plusMonths(1), updatedDate);
         ScenarioView deleteTransaction = $(ScenarioView.class).first();
         deleteTransaction.reverseAddRiderTransactionButton().click();
         VaadinConfirmDialogView ok = $(VaadinConfirmDialogView.class).first();

@@ -268,15 +268,9 @@ public class AddFamilyIT extends BaseLoginTest{
         Thread.sleep(5_000);
         VaadinConfirmDialogView confirm = $(VaadinConfirmDialogView.class).first();
         confirm.getDeleteButton().click();
-//		ScenarioView save = $(ScenarioView.class).first();
-//		save.getSaveButton().click();
-        NaviMenuView family = $(NaviMenuView.class).first();
-        family.transactions().click();
-        ScenarioView transactions = $(ScenarioView.class).first();
-        transactions.processFirstTransactionButton().click();
 
-/*
-        family.getFamilyAccept().click();
+        NaviMenuView family = $(NaviMenuView.class).first();
+         family.getFamilyAccept().click();
         ScenarioView getBeneficiary = $(ScenarioView.class).first();
         Assertions.assertTrue(getBeneficiary.family().getCell("Potter").isDisplayed());
         getBeneficiary.policyNumber().getCell("10000038309").click();
@@ -293,7 +287,23 @@ public class AddFamilyIT extends BaseLoginTest{
         deleteBeneficiary.getDeleteFamilyBeneButtonAccept().click();
         VaadinConfirmDialogView delete = $(VaadinConfirmDialogView.class).first();
         delete.getSaveButton().click();
-*/
+
+        deleteBeneficiary.policyNumber().getCell("10000038309").click();
+        deleteFamily.policyTransactions().click();
+        ScenarioView deleteTransactions = $(ScenarioView.class).first();
+        deleteTransactions.reverseSecondTransactionButton().click();
+        VaadinConfirmDialogView save = $(VaadinConfirmDialogView.class).first();
+        save.getSaveButton().click();
+        waitUntil(driver -> !deleteTransactions.progressBar().isDisplayed(), 80);
+        deleteTransactions.deleteFirstTransactionButton().click();
+        waitUntil(driver -> $(VaadinConfirmDialogView.class).exists(), 80);
+        VaadinConfirmDialogView confirmation = $(VaadinConfirmDialogView.class).first();
+        confirmation.getSaveButton().click();
+        deleteTransactions.deleteFirstTransactionButton().click();
+        waitUntil(driver -> $(VaadinConfirmDialogView.class).exists(), 80);
+        VaadinConfirmDialogView confirmation2 = $(VaadinConfirmDialogView.class).first();
+        confirmation2.getSaveButton().click();
+
     }
 
     @Test
@@ -327,10 +337,10 @@ public class AddFamilyIT extends BaseLoginTest{
         VaadinConfirmDialogView confirm = $(VaadinConfirmDialogView.class).first();
         confirm.getDeleteButton().click();
         NaviMenuView family = $(NaviMenuView.class).first();
-        family.policyTransactions().click();
-        ScenarioView transactions = $(ScenarioView.class).first();
-        transactions.reverseLoanTransactionButton().click();
- /*
+ //       family.policyTransactions().click();
+ //       ScenarioView transactions = $(ScenarioView.class).first();
+ //       transactions.reverseLoanTransactionButton().click();
+
         family.getFamilyAccept().click();
         ScenarioView checkOwner = $(ScenarioView.class).first();
         Assertions.assertTrue(checkOwner.family().getCell("Potter").isDisplayed());
@@ -349,7 +359,23 @@ public class AddFamilyIT extends BaseLoginTest{
         deleteOwner.getDeleteFamilyOwner().click();
         VaadinConfirmDialogView delete = $(VaadinConfirmDialogView.class).first();
         delete.getSaveButton().click();
-*/
+        deleteOwner.policyNumber().getCell("10000018191").click();
+        removeNewOwner.policyTransactions().click();
+        ScenarioView deleteTransactions = $(ScenarioView.class).first();
+        deleteTransactions.reverseSecondTransactionButton().click();
+        VaadinConfirmDialogView save = $(VaadinConfirmDialogView.class).first();
+        save.getSaveButton().click();
+        waitUntil(driver -> !deleteTransactions.progressBar().isDisplayed(), 80);
+        deleteTransactions.deleteFirstTransactionButton().click();
+        waitUntil(driver -> $(VaadinConfirmDialogView.class).exists(), 80);
+        VaadinConfirmDialogView confirmation = $(VaadinConfirmDialogView.class).first();
+        confirmation.getSaveButton().click();
+        deleteTransactions.deleteFirstTransactionButton().click();
+        waitUntil(driver -> $(VaadinConfirmDialogView.class).exists(), 80);
+        VaadinConfirmDialogView confirmation2 = $(VaadinConfirmDialogView.class).first();
+        confirmation2.getSaveButton().click();
+
+
     }
 
     @Test
@@ -398,11 +424,9 @@ public class AddFamilyIT extends BaseLoginTest{
         VaadinConfirmDialogView confirm = $(VaadinConfirmDialogView.class).first();
         confirm.getDeleteButton().click();
         NaviMenuView family = $(NaviMenuView.class).first();
-        family.policyTransactions().click();
-        ScenarioView transactions = $(ScenarioView.class).first();
-        transactions.reverseLoanTransactionButton().click();
 
-  /*
+
+
         family.getFamilyAccept().click();
         ScenarioView checkOwner = $(ScenarioView.class).first();
         Assertions.assertTrue(checkOwner.family().getCell("Potter").isDisplayed());
@@ -448,7 +472,7 @@ public class AddFamilyIT extends BaseLoginTest{
         conf.getSaveButton().click();
         waitUntil(driver -> !transactions.progressBar().isDisplayed(), 80);
 
-   */
+
     }
 
 
