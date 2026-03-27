@@ -405,11 +405,14 @@ public class AddFamilyIT extends BaseLoginTest{
         addNewRole.dob().setDate(LocalDate.of(1980, 8, 25));
 		addNewRole.gender().selectByText("Male");
         addNewRole.relationshipAccept().selectByText("Other");
+        addNewRole.addAddress().click();
+        addNewRole.selectAddress().selectByText("Add New");
         Assertions.assertEquals("Potter", addNewRole.lastName().getValue());
 //		Assertions.assertEquals("8/25/1980", addNewRole.dob().getInputValue());
         Assertions.assertEquals("253-44-6453", addNewRole.ssn().getValue());
         Assertions.assertEquals("chernyakma@yahoo.com", addNewRole.email().getValue());
         addNewRole.okButton().click();
+
         Thread.sleep(3_000);
         AddressView address = $(AddressView.class).first();
         address.address("4 Liberty Street", "23 Forest Street", "Norfolk", "23503");

@@ -4,6 +4,7 @@ import com.vaadin.flow.component.checkbox.testbench.CheckboxGroupElement;
 import com.vaadin.flow.component.formlayout.testbench.FormLayoutElement;
 import com.vaadin.flow.component.html.testbench.InputTextElement;
 import com.vaadin.flow.component.listbox.testbench.ListBoxElement;
+import com.vaadin.flow.component.radiobutton.testbench.RadioButtonElement;
 import com.vaadin.flow.component.radiobutton.testbench.RadioButtonGroupElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedCondition;
@@ -251,6 +252,12 @@ public class EntryDialogContent extends TestBenchElement {
 	}
 	protected DatePickerElement dob (){
 		return $(TestBenchElement.class).id("FldSec_1" ).$(DatePickerElement.class).id("DateOfBirth");
+	}
+	protected RadioButtonElement addAddress(){
+		return $(TestBenchElement.class).id("FldSec_1" ).$(RadioButtonGroupElement.class).first().$(RadioButtonElement.class).last();
+	}
+	protected SelectElement selectAddress(){
+		return $(TestBenchElement.class).id("FldSec_1" ).$(SelectElement.class).id("AddressGUID");
 	}
 	protected InputTextElement ssn (){
 		return $(TestBenchElement.class).id("FldSec_1" ).$(TextFieldElement.class).id("SsnOrTaxID").$(InputTextElement.class).first();
