@@ -6,7 +6,9 @@ import com.vaadin.flow.component.html.testbench.InputTextElement;
 import com.vaadin.flow.component.listbox.testbench.ListBoxElement;
 import com.vaadin.flow.component.radiobutton.testbench.RadioButtonElement;
 import com.vaadin.flow.component.radiobutton.testbench.RadioButtonGroupElement;
+import com.vaadin.testbench.TestBench;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 
 import com.vaadin.flow.component.button.testbench.ButtonElement;
@@ -345,6 +347,8 @@ public class EntryDialogContent extends TestBenchElement {
 
 		return $( TestBenchElement.class ).id( "PaymentLines").$( TestBenchElement.class ).id( "PaymentLinesTable").$(ButtonElement.class).first();
 	}
+
+
 
 	protected SelectElement getClaimDecision() {
 
