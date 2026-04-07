@@ -6,7 +6,9 @@ import com.vaadin.flow.component.html.testbench.InputTextElement;
 import com.vaadin.flow.component.listbox.testbench.ListBoxElement;
 import com.vaadin.flow.component.select.testbench.SelectElement;
 import com.vaadin.flow.component.tabs.testbench.TabElement;
+import com.vaadin.testbench.TestBench;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.w3c.dom.html.HTMLTableSectionElement;
 
@@ -323,14 +325,26 @@ public class ScenarioView extends TestBenchElement {
 		return $(TestBenchElement.class).id("viewContent").$("scenario-component").first().$(TestBenchElement.class).id("fieldLayout").$("claim-page").first().$( TestBenchElement.class ).id( "pageContent" ).$( "search-component" ).first().$(TestBenchElement.class).id("tools").$(ButtonElement.class).first();
 
 	}
+
+
+
 	protected GridElement getClaim() {
 
-		return $(TestBenchElement.class).id("viewContent").$("scenario-component").first().$(TestBenchElement.class).id("fieldLayout").$("claim-page").first().$( TestBenchElement.class ).id( "pageContent" ).$( "search-component" ).first().$(GridElement.class).first();
+		return $(TestBenchElement.class).id("viewContent").$("scenario-component").first().$(TestBenchElement.class).id("componentContent").$(TestBenchElement.class).id("fieldLayout").$("claim-page").first().$( TestBenchElement.class ).id( "pageContent" ).$( "search-component" ).first().$(GridElement.class).first();
 
 	}
+
+
+
+
 	protected WebElement claimStatus() {
 
 		return $(TestBenchElement.class).id("viewContent").$("scenario-component").first().$(TestBenchElement.class).id("titleLayout").$(TestBenchElement.class).id("summaryTable").$(TestBenchElement.class).id("componentContent").findElements(By.className("summary-column-value")).get(5);
+	}
+	protected GridElement getCIClaim() {
+
+		return $(TestBenchElement.class).id("viewContent").$("scenario-component").first().$(TestBenchElement.class).id("fieldLayout").$( TestBenchElement.class ).id( "pageContent" ).$( "search-component" ).first().$(GridElement.class).first();
+
 	}
 }
 

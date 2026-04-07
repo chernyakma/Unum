@@ -341,6 +341,11 @@ public class EntryDialogContent extends TestBenchElement {
 
 		return $( TestBenchElement.class ).id( "S1").$( TestBenchElement.class ).id( "PaymentLinesTable").$(ButtonElement.class).get(1);
 	}
+	protected ButtonElement addButton (){
+
+		return $( TestBenchElement.class ).id( "PaymentLines").$( TestBenchElement.class ).id( "PaymentLinesTable").$(ButtonElement.class).first();
+	}
+
 	protected SelectElement getClaimDecision() {
 
 		return $( TestBenchElement.class ).id( "S0").$( TestBenchElement.class ).id( "section" ).$( SelectElement.class ).id( "Decision");
@@ -348,6 +353,10 @@ public class EntryDialogContent extends TestBenchElement {
 	protected SelectElement getDenialClaimReason() {
 
 		return $( TestBenchElement.class ).id( "S0").$( TestBenchElement.class ).id( "section" ).$( SelectElement.class ).id("DenialReason");
+	}
+	protected SelectElement getClaimBenefit() {
+
+		return $( TestBenchElement.class ).id( "S0").$( TestBenchElement.class ).id( "section" ).$( SelectElement.class ).id( "BenefitRuleGUID");
 	}
 
 
