@@ -160,7 +160,7 @@ public class ClaimsIT extends BaseLoginTest{
         VaadinConfirmDialogView confirmDelete = $(VaadinConfirmDialogView.class).first();
         confirmDelete.getSaveButton().click();
         waitUntil(driver -> !transactions.progressBar().isDisplayed(), 80);
-        
+
         transactions.deleteFirstTransactionButton().click();
         waitUntil(driver -> $(VaadinConfirmDialogView.class).exists(), 120);
         VaadinConfirmDialogView remove = $(VaadinConfirmDialogView.class).first();
@@ -287,7 +287,7 @@ public class ClaimsIT extends BaseLoginTest{
 
         NaviMenuView claimPayment = $(NaviMenuView.class).first();
         claimPayment.makeCIPayment().click();
-        EntryDialogContent payment = $(EntryDialogContent.class).first();
+        EntryDialogContent payment = $(EntryDialogContent.class).last();
          payment.okButton().click();
          NaviMenuView policyTransactions=$(NaviMenuView.class).first();
         policyTransactions.claimCIPolicy().click();
