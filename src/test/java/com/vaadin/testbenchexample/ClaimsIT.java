@@ -160,14 +160,7 @@ public class ClaimsIT extends BaseLoginTest{
         VaadinConfirmDialogView confirmDelete = $(VaadinConfirmDialogView.class).first();
         confirmDelete.getSaveButton().click();
         waitUntil(driver -> !transactions.progressBar().isDisplayed(), 80);
-
-/*
-        transactions.deleteFirstTransactionButton().click();
-        waitUntil(driver -> $(VaadinConfirmDialogView.class).exists(), 120);
-        VaadinConfirmDialogView delete = $(VaadinConfirmDialogView.class).first();
-        delete.getSaveButton().click();
-        waitUntil(driver -> !transactions.progressBar().isDisplayed(), 80);
-*/
+        
         transactions.deleteFirstTransactionButton().click();
         waitUntil(driver -> $(VaadinConfirmDialogView.class).exists(), 120);
         VaadinConfirmDialogView remove = $(VaadinConfirmDialogView.class).first();
@@ -180,25 +173,11 @@ public class ClaimsIT extends BaseLoginTest{
         getClaim1.processCIClaim().click();
         EntryDialogContent change = $(EntryDialogContent.class).first();
         change.getEventType().selectByText("Denial");
-  /*
-        EntryDialogContent denyClaim = $(EntryDialogContent.class).first();
-        denyClaim.editDecision().click();
-        EntryDialogContent decision = $(EntryDialogContent.class).last();
-        decision.getClaimDecision().selectByText("Deny");
-        decision.okButton().click();
-        EntryDialogContent reason = $(EntryDialogContent.class).first();
 
-   */
         change.getDenialClaimReason().selectByText("Marked Up In Error");
         change.okButton().click();
         ScenarioView claimStatus = $(ScenarioView.class).first();
         Assertions.assertEquals("Denied", claimStatus.claimStatus().getText());
-
-
-
-
-
-
 
 
     }
@@ -233,7 +212,7 @@ public class ClaimsIT extends BaseLoginTest{
 
         NaviMenuView claimPayment = $(NaviMenuView.class).first();
         claimPayment.makeCIPayment().click();
-        EntryDialogContent payment = $(EntryDialogContent.class).first();
+        EntryDialogContent payment = $(EntryDialogContent.class).last();
         payment.addButton().click();
         EntryDialogContent benefit = $(EntryDialogContent.class).last();
         benefit.getClaimBenefit().selectItemByIndex(7);
@@ -258,13 +237,6 @@ public class ClaimsIT extends BaseLoginTest{
         confirmDelete.getSaveButton().click();
         waitUntil(driver -> !transactions.progressBar().isDisplayed(), 80);
 
-/*
-        transactions.deleteFirstTransactionButton().click();
-        waitUntil(driver -> $(VaadinConfirmDialogView.class).exists(), 120);
-        VaadinConfirmDialogView delete = $(VaadinConfirmDialogView.class).first();
-        delete.getSaveButton().click();
-        waitUntil(driver -> !transactions.progressBar().isDisplayed(), 80);
-*/
         transactions.deleteFirstTransactionButton().click();
         waitUntil(driver -> $(VaadinConfirmDialogView.class).exists(), 120);
         VaadinConfirmDialogView remove = $(VaadinConfirmDialogView.class).first();
@@ -277,15 +249,6 @@ public class ClaimsIT extends BaseLoginTest{
         getClaim1.processCIClaim().click();
         EntryDialogContent change = $(EntryDialogContent.class).first();
         change.getEventType().selectByText("Denial");
-  /*
-        EntryDialogContent denyClaim = $(EntryDialogContent.class).first();
-        denyClaim.editDecision().click();
-        EntryDialogContent decision = $(EntryDialogContent.class).last();
-        decision.getClaimDecision().selectByText("Deny");
-        decision.okButton().click();
-        EntryDialogContent reason = $(EntryDialogContent.class).first();
-
-   */
         change.getDenialClaimReason().selectByText("Marked Up In Error");
         change.okButton().click();
         ScenarioView claimStatus = $(ScenarioView.class).first();
@@ -325,14 +288,8 @@ public class ClaimsIT extends BaseLoginTest{
         NaviMenuView claimPayment = $(NaviMenuView.class).first();
         claimPayment.makeCIPayment().click();
         EntryDialogContent payment = $(EntryDialogContent.class).first();
- //       payment.addButton().click();
- //       EntryDialogContent benefit = $(EntryDialogContent.class).last();
-  //      benefit.getClaimBenefit().selectItemByIndex(7);
-        payment.okButton().click();
- //       EntryDialogContent payment2 = $(EntryDialogContent.class).first();
- //       payment2.getPayee().selectItemByIndex(0);
- //       payment.okButton().click();
-        NaviMenuView policyTransactions=$(NaviMenuView.class).first();
+         payment.okButton().click();
+         NaviMenuView policyTransactions=$(NaviMenuView.class).first();
         policyTransactions.claimCIPolicy().click();
         policyTransactions.policyTransactionsCI().click();
         ScenarioView transactions = $(ScenarioView.class).first();
@@ -348,14 +305,6 @@ public class ClaimsIT extends BaseLoginTest{
         VaadinConfirmDialogView confirmDelete = $(VaadinConfirmDialogView.class).first();
         confirmDelete.getSaveButton().click();
         waitUntil(driver -> !transactions.progressBar().isDisplayed(), 80);
-
-/*
-        transactions.deleteFirstTransactionButton().click();
-        waitUntil(driver -> $(VaadinConfirmDialogView.class).exists(), 120);
-        VaadinConfirmDialogView delete = $(VaadinConfirmDialogView.class).first();
-        delete.getSaveButton().click();
-        waitUntil(driver -> !transactions.progressBar().isDisplayed(), 80);
-*/
         transactions.deleteFirstTransactionButton().click();
         waitUntil(driver -> $(VaadinConfirmDialogView.class).exists(), 120);
         VaadinConfirmDialogView remove = $(VaadinConfirmDialogView.class).first();
@@ -368,15 +317,6 @@ public class ClaimsIT extends BaseLoginTest{
         getClaim1.processCIClaim().click();
         EntryDialogContent change = $(EntryDialogContent.class).first();
         change.getEventType().selectByText("Denial");
-  /*
-        EntryDialogContent denyClaim = $(EntryDialogContent.class).first();
-        denyClaim.editDecision().click();
-        EntryDialogContent decision = $(EntryDialogContent.class).last();
-        decision.getClaimDecision().selectByText("Deny");
-        decision.okButton().click();
-        EntryDialogContent reason = $(EntryDialogContent.class).first();
-
-   */
         change.getDenialClaimReason().selectByText("Marked Up In Error");
         change.okButton().click();
         ScenarioView claimStatus = $(ScenarioView.class).first();
