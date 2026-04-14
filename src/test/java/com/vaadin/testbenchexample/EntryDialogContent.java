@@ -378,6 +378,10 @@ public class EntryDialogContent extends TestBenchElement {
 
 	return $( TestBenchElement.class ).id( "S1").$( TestBenchElement.class ).id( "section").$(CheckboxGroupElement.class).id("ExceedRemainingBenefit").$(CheckboxElement.class).first();
 	}
+	protected SelectElement getCoverage() {
+
+		return $( TestBenchElement.class ).id( "S0").$( TestBenchElement.class ).id( "section" ).$( SelectElement.class ).id( "CoverageGUID");
+	}
 
 
 
