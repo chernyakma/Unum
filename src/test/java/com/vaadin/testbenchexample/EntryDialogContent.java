@@ -362,6 +362,24 @@ public class EntryDialogContent extends TestBenchElement {
 
 		return $( TestBenchElement.class ).id( "S0").$( TestBenchElement.class ).id( "section" ).$( SelectElement.class ).id( "BenefitRuleGUID");
 	}
+	protected SelectElement getClaimSubType() {
+
+		return $( TestBenchElement.class ).id( "S0").$( TestBenchElement.class ).id( "section" ).$( SelectElement.class ).id( "SubType");
+	}
+	protected DatePickerElement startBenefitDate(){
+
+		return $( TestBenchElement.class ).id( "S0").$( TestBenchElement.class ).id( "section" ).$( DatePickerElement.class ).id("StartDate");
+	}
+	protected DatePickerElement endBenefitDate(){
+
+		return $( TestBenchElement.class ).id( "S0").$( TestBenchElement.class ).id( "section" ).$( DatePickerElement.class ).id("EndDate");
+	}
+	protected CheckboxElement exceedMaximum(){
+
+	return $( TestBenchElement.class ).id( "S1").$( TestBenchElement.class ).id( "section").$(CheckboxGroupElement.class).id("ExceedRemainingBenefit").$(CheckboxElement.class).first();
+	}
+
+
 
 
 	public void addRundomCaseNumber() {
