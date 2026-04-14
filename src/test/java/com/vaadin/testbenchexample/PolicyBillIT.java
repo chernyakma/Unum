@@ -35,6 +35,19 @@ public class PolicyBillIT extends BaseLoginTest {
         suspenseSource.depositAccountAccept().selectByText("General Premium");
         suspenseSource.processButton().click();
         //       ScenarioView checkSuspence = $(ScenarioView.class).first();
+        NaviMenuView transaction = $(NaviMenuView.class).first();
+        transaction.policyTransactions().click();
+        ScenarioView deleteTransaction = $(ScenarioView.class).first();
+        deleteTransaction.reverseLoanTransactionButton().click();
+        VaadinConfirmDialogView confirmation = $(VaadinConfirmDialogView.class).first();
+        confirmation.getSaveButton().click();
+        waitUntil(driver -> !deleteTransaction.progressBar().isDisplayed(), 80);
+
+//		ScenarioView deleteLoanTransaction = $(ScenarioView.class).first();
+        deleteTransaction.deleteLoanTransactionButton().click();
+        VaadinConfirmDialogView confirmation2 = $(VaadinConfirmDialogView.class).first();
+        confirmation2.getSaveButton().click();
+
     }
 
 
