@@ -211,6 +211,10 @@ public class NaviMenuView extends TestBenchElement {
 
 		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 24 );
 	}
+	protected TestBenchElement claimWPolicy() {
+
+		return $( TestBenchElement.class ).id( "navi-menu" ).$( IconElement.class ).get( 18 );
+	}
 	protected TestBenchElement claims() {
 
 		return $( TestBenchElement.class ).id( "navi-menu").$( IconElement.class ).get( 29 );
